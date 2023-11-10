@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 15:11:08 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/10/31 17:56:25 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/10/31 14:42:43 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/10 11:27:44 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "PhoneBook.hpp"
-#include "contact.hpp"
+#ifndef CONTACT_H
+# define CONTACT_H
 
-int main()
-{
-    PhoneBook book;
-    std::string input = "";
-    
-    std::cout << "Please select ADD, SEARCH or EXIT" << std::endl;
-    std::cout << ">";
-    std::cin >> input;
-    
-    if (input == "ADD")
-    {
-        
-    }
+class Contact{
+    public:
     
     
+    private:
+    std::string _firstName;
+    std::string _lastName;
+    std::string _nickName;
+    std::string _phoneNumber;
+    std::string _darkSecret;
 }
+
+#endif
