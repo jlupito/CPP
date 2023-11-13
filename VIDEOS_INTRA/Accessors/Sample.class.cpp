@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:20:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/10 17:50:53 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:42:15 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Sample::Sample( void ) {
 	
-	std::cout << "Constructor called" << std::endl;;
+	std::cout << "Constructor called" << std::endl;
 
 	this->setFoo( 0 );
 	std::cout << "this->getFoo(): " << this->getFoo() << std::endl;

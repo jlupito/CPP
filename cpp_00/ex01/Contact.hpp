@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:43 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/10 11:27:44 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:17:39 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,31 @@
 # define CONTACT_H
 
 class Contact{
+    
     public:
     
+    Contact( void );
+    ~Contact( void );
+    
+    std::string	get_firstName() const;
+    std::string	get_lastName() const;
+    std::string	get_nickName() const;
+    std::string	get_darkSec() const;
+    std::string	get_phNbr() const;
+	void	    set_firstName();
+	void	    set_lastName();
+	void	    set_nickName();
+	void	    set_darkSec();
+	void	    set_phNbr();
     
     private:
+    
     std::string _firstName;
     std::string _lastName;
     std::string _nickName;
     std::string _phoneNumber;
     std::string _darkSecret;
+    int         _index_contact;
 }
 
 #endif
