@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:11:08 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/10 11:27:05 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:08:42 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,24 @@
 
 int main()
 {
-    PhoneBook book;
-    std::string input = "";
+    PhoneBook   PhoneBook;
     
-    std::cout << "Please select ADD, SEARCH or EXIT" << std::endl;
-    std::cout << ">";
-    std::cin >> input;
-    
-    if (input == "ADD")
-    {
-        
+    while (1) {
+        std::string input = "";
+        std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
+        std::cout << "> ";
+        std::getline( std::cin, input );
+        std::cout << std::endl;
+
+        if ( input == "ADD" ) {
+            PhoneBook.add_contact();
+        }
+        else if ( input == "SEARCH" ) {
+            PhoneBook.search_contact();
+        }
+        else if ( input == "EXIT" || std::cin.eof()) {
+            PhoneBook.exit();
+        }
     }
-    
-    
+    return 0;
 }
