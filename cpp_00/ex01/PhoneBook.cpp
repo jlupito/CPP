@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:47 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/14 18:21:20 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:58:24 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ void	PhoneBook::add_contact() {
 	newContact.set_darkSec();
 	std::cout << "Contact has been saved." << std::endl << std::endl;
 	if (this->_nbContact < 8) {
-		this->_contact[this->_nbContact] = newContact;
+		this->_contact[this->_nbContact % 8] = newContact;
 		this->_nbContact += 1;
 	}
-	else {		
-		this->_contact[this->_nbContact % 8] = newContact;
+	else {
+		for (int i = 1; i < 8; i++)
+			this->_contact[i - 1] = this->_contact[i];
+		this->_contact[7] = newContact;
 	}
 }
 
@@ -66,7 +68,21 @@ void	PhoneBook::search_contact() {
 			break;
 	}
 	search_index = std::stoi(search_input);
-	_contact[search_index - 1].display_contact(search_index);
+	if (search_index > _nbContact || !search_index) {
+		std::cout << "This index is not valid." << std::endl 
+			<< std::endl;
+		PhoneBook::search_contact();
+	}
+	else
+		_contact[search_index - 1].display_contact(search_index);
+}
+
+void	PhoneBook::_truncateContact(std::string str) {
+	if (str.length() > 10) {
+		str.erase(9,str.length() - 10);
+		str[9] = '.';
+	}
+	std::cout << std::setw(10) << str;
 }
 
 void	PhoneBook::_displayBook() {
@@ -83,14 +99,11 @@ void	PhoneBook::_displayBook() {
 		std::cout << "╠════════════╬════════════╬════════════╬════════════╣"
             << std::endl;
 		std::cout << "║ " << std::setw(10) << i + 1 << " ║ ";
-		// PhoneBook::print_truncate(this->_contact[i].get_firstName());
-		std::cout << (this->_contact[i].get_firstName());
+		PhoneBook::_truncateContact(this->_contact[i].get_firstName());
 		std::cout << " ║ ";
-		// PhoneBook::print_truncate(this->_contact[i].get_lastName());
-		std::cout << (this->_contact[i].get_lastName());
+		PhoneBook::_truncateContact(this->_contact[i].get_lastName());
 		std::cout << " ║ ";
-		// PhoneBook::print_truncate(this->_contact[i].get_nickName());
-		std::cout << (this->_contact[i].get_nickName());
+		PhoneBook::_truncateContact(this->_contact[i].get_nickName());
 		std::cout << " ║" << std::endl;
 	}
 	std::cout << "╚════════════╩════════════╩════════════╩════════════╝\033[m"
@@ -99,6 +112,7 @@ void	PhoneBook::_displayBook() {
 }
 
 void	PhoneBook::exit() {
-	std::cout << "Exited Phonebook, go make new friends now." << std::endl;
+	std::cout << "Exited Phonebook, go make new friends now." << std::endl
+		<<std::endl;
 	std::exit(0);
 }

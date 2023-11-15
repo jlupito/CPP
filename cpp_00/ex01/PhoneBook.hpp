@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:50 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/14 18:14:51 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/15 10:54:25 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class PhoneBook {
         Contact     _contact[8];
         int         _nbContact;
         void        _displayBook( void );
+        void        _truncateContact( std::string str );
 };
 
 #endif

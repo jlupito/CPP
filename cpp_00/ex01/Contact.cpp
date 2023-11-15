@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:40 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/14 18:21:01 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:48:22 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ std::string	Contact::get_darkSec() const {
 
 void	Contact::set_firstName() {
 	
-	std::string input;
+	std::string input = "";
 	
-	while (input.empty()) {
+	while (Contact::_isBlank(input)) {
 		std::cout << "Please enter first name" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
@@ -60,15 +60,19 @@ void	Contact::set_firstName() {
 		if (input.empty())
 			std::cout << "This field is mandatory. ";
 	}
+	if (Contact::_validName(input)) {
+		std::cout << "This isn't valid my friend. ";
+		return Contact::set_firstName();
+	}
 	this->_firstName = input;
 	return;
 }
 
 void	Contact::set_lastName() {
 	
-	std::string input;
+	std::string input = "";
 	
-	while (input.empty()) {
+	while (Contact::_isBlank(input)) {
 		std::cout << "Please enter last name" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
@@ -76,6 +80,10 @@ void	Contact::set_lastName() {
 			PhoneBook::exit();
 		if (input.empty())
 			std::cout << "This field is mandatory. ";
+	}
+	if (Contact::_validName(input)) {
+		std::cout << "This isn't valid my friend. ";
+		return Contact::set_lastName();
 	}
 	this->_lastName = input;
 	return;
@@ -85,7 +93,7 @@ void	Contact::set_nickName() {
 	
 	std::string input;
 	
-	while (input.empty()) {
+	while (Contact::_isBlank(input)) {
 		std::cout << "Please enter nickname" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
@@ -100,9 +108,9 @@ void	Contact::set_nickName() {
 
 void	Contact::set_phNbr() {
 	
-	std::string input;
+	std::string input = "";
 	
-	while (input.empty()) {
+	while (Contact::_isBlank(input)) {
 		std::cout << "Please enter phone number" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
@@ -110,6 +118,10 @@ void	Contact::set_phNbr() {
 			PhoneBook::exit();
 		if (input.empty())
 			std::cout << "This field is mandatory. ";
+	}
+	if (Contact::_validPhoneNbr(input)) {
+		std::cout << "This isn't valid my friend. ";
+		return Contact::set_phNbr();
 	}
 	this->_phoneNumber = input;
 	return;
@@ -119,7 +131,7 @@ void	Contact::set_darkSec() {
 	
 	std::string input;
 	
-	while (input.empty()) {
+	while (Contact::_isBlank(input)) {
 		std::cout << "Please enter darkest secret" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
@@ -130,6 +142,34 @@ void	Contact::set_darkSec() {
 	}
 	this->_darkSecret = input;
 	return;
+}
+
+bool	Contact::_validPhoneNbr( std::string str ) {
+	for (int i = 0; i < str.length(); i++) {
+		if (!std::isdigit(str[i]) || !str[i] == '+' || !str[i] == '-')
+			return 1;
+	}
+	return 0;
+}
+
+bool	Contact::_validName( std::string str ) {
+	for (int i = 0; i < str.length(); i++) {
+		if (!std::isalpha(str[i]) || !str[i] == '-' || !str[i] == '.')
+			return 1;
+	}
+	return 0;
+}
+
+bool Contact::_isBlank( std::string& str ) {
+    if (str.empty()) {
+        return 1;
+    }
+    for (char c : str) {
+        if (!std::isspace(c)) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 void 	Contact::display_contact( int index ) {
