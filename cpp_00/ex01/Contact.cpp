@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:40 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/15 13:48:22 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:00:29 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ void	Contact::set_firstName() {
 		std::cout << "Please enter first name" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
-		if (std::cin.eof())
+		if (std::cin.eof()) {
+			std::cout << std::endl;
 			PhoneBook::exit();
+		}
 		if (input.empty())
 			std::cout << "This field is mandatory. ";
 	}
@@ -76,8 +78,10 @@ void	Contact::set_lastName() {
 		std::cout << "Please enter last name" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
-		if (std::cin.eof())
+		if (std::cin.eof()) {
+			std::cout << std::endl;
 			PhoneBook::exit();
+		}
 		if (input.empty())
 			std::cout << "This field is mandatory. ";
 	}
@@ -97,8 +101,10 @@ void	Contact::set_nickName() {
 		std::cout << "Please enter nickname" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
-		if (std::cin.eof())
+		if (std::cin.eof()) {
+			std::cout << std::endl;
 			PhoneBook::exit();
+		}
 		if (input.empty())
 			std::cout << "This field is mandatory. ";
 	}
@@ -114,8 +120,10 @@ void	Contact::set_phNbr() {
 		std::cout << "Please enter phone number" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
-		if (std::cin.eof())
+		if (std::cin.eof()) {
+			std::cout << std::endl;
 			PhoneBook::exit();
+		}
 		if (input.empty())
 			std::cout << "This field is mandatory. ";
 	}
@@ -135,8 +143,10 @@ void	Contact::set_darkSec() {
 		std::cout << "Please enter darkest secret" << std::endl << "> ";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
-		if (std::cin.eof())
+		if (std::cin.eof()) {
+			std::cout << std::endl;
 			PhoneBook::exit();
+		}
 		if (input.empty())
 			std::cout << "This field is mandatory. ";
 	}

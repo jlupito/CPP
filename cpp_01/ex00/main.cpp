@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.class.cpp                                   :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 15:20:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/16 12:02:18 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/16 14:28:53 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
 #include <iostream>
-#include "Sample.class.hpp"
 
-// dans une fonction non-membre, on ne peut JAMAIS faire appel au pointeur this
-
-Sample::Sample( void ) : foo( 0 ) {
+int	main() {
 	
-	std::cout << "Constructor called" << std::endl;
-	return;
+	Zombie::randomChump("Stack Zombie");
+
+	Zombie *zombieHeap = Zombie::newZombie("Heap Zombie");
+	zombieHeap->announce();
 	
-}
+	delete zombieHeap;
 
-Sample::~Sample( void ) {
-
-	std::cout << "Destructor called" << std::endl;
-	return;
-}
-
-void	Sample::bar( void ) const {
-
-	std::cout << "Member function bar called" << std::endl;
-	return;
+	return 0;
 }

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.class.cpp                                   :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 15:20:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/16 12:02:18 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/15 16:14:37 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/16 14:29:04 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
 #include <iostream>
-#include "Sample.class.hpp"
 
-// dans une fonction non-membre, on ne peut JAMAIS faire appel au pointeur this
-
-Sample::Sample( void ) : foo( 0 ) {
+Zombie::Zombie( std::string name ) : _name(name) {
 	
-	std::cout << "Constructor called" << std::endl;
-	return;
-	
-}
-
-Sample::~Sample( void ) {
-
-	std::cout << "Destructor called" << std::endl;
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl; 
 	return;
 }
 
-void	Sample::bar( void ) const {
+Zombie::~Zombie( void ) {
+	
+    std::cout << "Zombie " << this->_name << " destroyed." << std::endl;
+	return;
+}
 
-	std::cout << "Member function bar called" << std::endl;
+void	Zombie::announce() {
+
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl; 
 	return;
 }
