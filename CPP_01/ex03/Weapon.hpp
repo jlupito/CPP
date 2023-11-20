@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 14:20:17 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/20 15:24:39 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/20 16:40:54 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+
 #include <iostream>
 #include <string>
 
-int	main() {
+class Weapon {
 	
-	std::string n = "";
-	std::string name = "";
-	
-	std::cout << "Number of Zombies > ";
-	std::getline(std::cin, n);
-	std::cout << "Name of Zombie > ";
-	std::getline(std::cin, name);
-	Zombie* horde = zombieHorde(std::stoi(n), name);
-	for (int i = 0; i < std::stoi(n); i++) {
-		horde[i].announce();
-	}
-	
-	delete [] horde;
-
-	return 0;
+	public:
+    
+    Weapon( void );
+    ~Weapon( void );
+        
+    std::string const &		getType() const;
+    void           			setType( str::string type );
+    
+    private:
+    
+    std::string     _weaponType;
 }
+
+#endif

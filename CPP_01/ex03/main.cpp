@@ -5,30 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 14:20:17 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/20 15:46:14 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
-#include <string>
+#include "weapon.hpp"
+#include "HumanA.hpp"
+#include "HUmanB.hpp"
 
-int	main() {
-	
-	std::string n = "";
-	std::string name = "";
-	
-	std::cout << "Number of Zombies > ";
-	std::getline(std::cin, n);
-	std::cout << "Name of Zombie > ";
-	std::getline(std::cin, name);
-	Zombie* horde = zombieHorde(std::stoi(n), name);
-	for (int i = 0; i < std::stoi(n); i++) {
-		horde[i].announce();
+int main() {
+	{
+		Weapon club = Weapon("crude spiked club");
+		
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
 	}
-	
-	delete [] horde;
-
+	{
+		Weapon club = Weapon("crude spiked club");
+		
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 	return 0;
 }

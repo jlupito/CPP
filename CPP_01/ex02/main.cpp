@@ -6,29 +6,30 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 14:20:17 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:08:29 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 #include <iostream>
 #include <string>
 
-int	main() {
+int main() {
 	
-	std::string n = "";
-	std::string name = "";
+	std::string str = "HI THIS IS BRAIN";
+
+	std::string* stringPTR =  &str;
+	std::string& stringREF =  str;
 	
-	std::cout << "Number of Zombies > ";
-	std::getline(std::cin, n);
-	std::cout << "Name of Zombie > ";
-	std::getline(std::cin, name);
-	Zombie* horde = zombieHorde(std::stoi(n), name);
-	for (int i = 0; i < std::stoi(n); i++) {
-		horde[i].announce();
-	}
-	
-	delete [] horde;
+	std::cout << "Adresse de string: " << &str << std::endl;
+	std::cout << "Adresse dans PTR: " << stringPTR << std::endl;
+	std::cout << "Adresse dans REF: " << &stringREF << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "Valeur de string: " << str << std::endl;
+	std::cout << "Valeur pointee par PTR: " << *stringPTR << std::endl;
+	std::cout << "Valeur pointee par REF: " << stringREF << std::endl;
 
 	return 0;
+
 }

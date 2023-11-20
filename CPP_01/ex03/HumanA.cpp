@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 14:20:17 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/20 15:42:26 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/20 16:45:42 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "Weapon.hpp"
 #include <iostream>
-#include <string>
 
-int	main() {
-	
-	std::string n = "";
-	std::string name = "";
-	
-	std::cout << "Number of Zombies > ";
-	std::getline(std::cin, n);
-	std::cout << "Name of Zombie > ";
-	std::getline(std::cin, name);
-	Zombie* horde = zombieHorde(std::stoi(n), name);
-	for (int i = 0; i < std::stoi(n); i++) {
-		horde[i].announce();
-	}
-	
-	delete [] horde;
+HumanA::HumanA( Weapon weapon ) {
+	return;
+}
 
-	return 0;
+HumanA::~HumanA( void ) {
+	return;
+}
+
+HumanA::attack() {
+	
+	std::cout << this->_name << " attacks with their " << this->_weaponType << std::endl;
+	return;
 }

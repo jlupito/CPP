@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:14:40 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 13:59:13 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:20:24 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ class Zombie {
     std::string     _name;
 
 };
+
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

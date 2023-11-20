@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 14:20:17 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/20 15:24:30 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/20 16:57:19 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 #include <iostream>
-#include <string>
 
-int	main() {
-	
-	std::string n = "";
-	std::string name = "";
-	
-	std::cout << "Number of Zombies > ";
-	std::getline(std::cin, n);
-	std::cout << "Name of Zombie > ";
-	std::getline(std::cin, name);
-	Zombie* horde = zombieHorde(std::stoi(n), name);
-	for (int i = 0; i < std::stoi(n); i++) {
-		horde[i].announce();
-	}
-	
-	delete [] horde;
+Weapon::Weapon( void ) {
+	return;
+}
 
-	return 0;
+Weapon::~Weapon( void ) {
+	return;
+}
+
+std::string const &	Weapon::getType() const {
+	
+	return std::string const & typeREF =  this->_type;
+}
+
+void	Weapon::setType( std::string type) {
+	
+	this->_type = type;
+	return;
 }
