@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/17 14:03:15 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:13:55 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 #include <iostream>
 #include <string>
 
+Zombie* zombieHorde( int N, std::string name );
+
 int	main() {
 	
 	std::string n = "";
 	std::string name = "";
 	
-	Zombie *theHorde = Zombie::zombieHorde(std::stoi(n), name);
 	std::cout << "Number of Zombies > ";
 	std::getline(std::cin, n);
 	std::cout << "Name of Zombie > ";
 	std::getline(std::cin, name);
-	for (int i = 0; i < 35; i++) {
-		theHorde[i].announce();
+	Zombie* horde = zombieHorde(std::stoi(n), name);
+	for (int i = 0; i < std::stoi(n); i++) {
+		horde[i].announce();
 	}
 	
-	delete [] theHorde;
+	delete [] horde;
 
 	return 0;
 }

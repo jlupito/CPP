@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:20:42 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/16 15:50:26 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:50:51 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Student {
 };
 
 int main() {
+	
 	Student*	students = new Student[42]; // attention operateur new [] ne prend pas de parametres
 
 	delete [] students; 
