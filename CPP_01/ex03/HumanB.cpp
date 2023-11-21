@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:26 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 16:43:53 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:44:42 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Weapon.hpp"
 #include <iostream>
 
-HumanB::HumanB( void ) {
+HumanB::HumanB( std::string name ) : _name(name) {
 	return;
 }
 
@@ -22,8 +22,13 @@ HumanB::~HumanB( void ) {
 	return;
 }
 
-HumanB::attack() {
+void HumanB::attack( void ) {
 	
-	std::cout << this->_name << " attacks with their " << this->_weaponType << std::endl;
+	std::cout << this->_name << " attacks with their " << (*this->_weapon).getType() << std::endl;
+	return;
+}
+
+void HumanB::setWeapon(Weapon &weapon) {
+	this->_weapon = &weapon;
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:24:39 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 16:40:54 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:41:39 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ class Weapon {
 	
 	public:
     
-    Weapon( void );
+    Weapon( std::string weaponType );
     ~Weapon( void );
         
-    std::string const &		getType() const;
-    void           			setType( str::string type );
+    std::string const &		getType();
+    void           			setType( std::string weaponType );
     
     private:
     
-    std::string     _weaponType;
-}
+    std::string     _type;
+};
 
 #endif

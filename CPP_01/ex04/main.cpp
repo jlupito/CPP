@@ -5,30 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/21 15:57:01 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/21 16:55:36 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Sed.h"
 #include <string>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 
-int	main() {
+int main(int ac, char **av) {
+
 	
-	std::string n = "";
-	std::string name = "";
-	
-	std::cout << "Number of Zombies > ";
-	std::getline(std::cin, n);
-	std::cout << "Name of Zombie > ";
-	std::getline(std::cin, name);
-	Zombie* horde = zombieHorde(std::stoi(n), name);
-	for (int i = 0; i < std::stoi(n); i++) {
-		horde[i].announce();
+	if (ac != 4) {
+		std::cout << "Error in number of arguments" << std::endl;
+		return 1;
 	}
 	
-	delete [] horde;
 
+	std::ifstream file(av[1].c_str()); // tester si fichier existe
+	std::ofstream file(av[1].c_str(), std::ios::app); // tester si Write OK
+	std::string s1 = av[2];
+	std::string s2 = av[3];
+
+	
+	
 	return 0;
 }

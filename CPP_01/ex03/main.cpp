@@ -6,13 +6,13 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/20 15:46:14 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:32:27 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "weapon.hpp"
+#include "Weapon.hpp"
 #include "HumanA.hpp"
-#include "HUmanB.hpp"
+#include "HumanB.hpp"
 
 int main() {
 	{

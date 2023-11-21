@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 16:14:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/21 15:57:01 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/20 15:42:38 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/21 16:01:31 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
-#include <string>
+#ifndef SED_HPP
+# define SED_HPP
 
-int	main() {
+class sed {
 	
-	std::string n = "";
-	std::string name = "";
-	
-	std::cout << "Number of Zombies > ";
-	std::getline(std::cin, n);
-	std::cout << "Name of Zombie > ";
-	std::getline(std::cin, name);
-	Zombie* horde = zombieHorde(std::stoi(n), name);
-	for (int i = 0; i < std::stoi(n); i++) {
-		horde[i].announce();
-	}
-	
-	delete [] horde;
+	public:
+    
+    sed( void );
+    ~sed( void );
+    
+    private:
+    
+};
 
-	return 0;
-}
+#endif

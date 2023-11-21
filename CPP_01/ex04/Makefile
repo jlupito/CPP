@@ -1,13 +1,13 @@
-NAME = zombie
+NAME = sed
 
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 DEPS = ${OBJS:.o=.d}
 
-INC = Zombie.hpp 
+INC = sed.hpp 
   
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp \
+SRCS = main.cpp sed.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)
