@@ -3,43 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/22 16:40:37 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/24 15:17:50 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.h"
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <iomanip>
-
-static void	replace(std::string filename, std::string s1, std::string s2) {
-	
-	std::fstream	old_file;
-	std::fstream	new_file;
-
-	
-	
-	
-}
-
+#include "Sed.hpp"
 
 int main(int ac, char **av) {
 
-	if (ac != 4) {
-		std::cout << "Error in number of arguments" << std::endl;
-		return 1;
+	if (ac != 4 || !av[2][0] || !av[3][0]) {
+		std::cout << "Error, arguments need to be a filename and two non-empty strings!" << std::endl;
 	}
-	
-	if (!av[2][0] || !av[3][0]) {
-		std::cout << "Strings cannot be empty" << std::endl;
-		return 1;
+	else {
+		replace(av[1], av[2], av[3]);
 	}
-
-	replace(av[1], av[2], av[3]);
-	
 	return 0;
 }

@@ -7,7 +7,7 @@ DEPS = ${OBJS:.o=.d}
 
 INC = sed.hpp 
   
-SRCS = main.cpp sed.cpp \
+SRCS = main.cpp Sed.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)
