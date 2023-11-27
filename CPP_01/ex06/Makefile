@@ -1,13 +1,13 @@
-NAME = sed
+NAME = HarlFilter
 
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 DEPS = ${OBJS:.o=.d}
 
-INC = Sed.hpp 
+INC = Harl.hpp 
   
-SRCS = main.cpp Sed.cpp \
+SRCS = main.cpp Harl.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)
