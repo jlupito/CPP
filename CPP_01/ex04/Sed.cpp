@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:26 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/24 15:45:15 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/11/28 12:43:04 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	replace(std::string infile, std::string s1, std::string s2) {
         std::cout << "The file is empty." << std::endl;
 		return 1;
 	}
-	
 	
 	std::getline(inStream, content, '\0');
 	size_t pos;

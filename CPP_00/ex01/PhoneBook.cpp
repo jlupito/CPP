@@ -6,11 +6,12 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:47 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/15 13:58:24 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:02:39 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <sstream>
 #include <iomanip>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
@@ -67,7 +68,8 @@ void	PhoneBook::search_contact() {
 		if (search_input.length() == 1 && std::isdigit(search_input[0]))
 			break;
 	}
-	search_index = std::stoi(search_input);
+	std::istringstream iss(search_input);
+	iss >> search_index;
 	if (search_index > _nbContact || !search_index) {
 		std::cout << "This index is not valid." << std::endl 
 			<< std::endl;

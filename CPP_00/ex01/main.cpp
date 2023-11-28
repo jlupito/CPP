@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:11:08 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/15 16:01:43 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:25:39 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main()
         else if ( input == "SEARCH" ) {
             PhoneBook.search_contact();
         }
-        else if ( input == "EXIT" || std::cin.eof()) {
+        else if ( input == "EXIT" || std::cin.eof() ) {
             std::cout << std::endl;
             PhoneBook.exit();
         }

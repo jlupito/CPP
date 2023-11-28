@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:50 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/15 10:54:25 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:00:53 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <cstdlib>
 
 class PhoneBook {
     public:

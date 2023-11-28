@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:40 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/15 16:00:29 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:20:06 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void	Contact::set_firstName() {
 			std::cout << std::endl;
 			PhoneBook::exit();
 		}
-		if (input.empty())
+		if (input.empty() || Contact::_isBlank(input))
 			std::cout << "This field is mandatory. ";
 	}
-	if (Contact::_validName(input)) {
+	if (!Contact::_validName(input)) {
 		std::cout << "This isn't valid my friend. ";
 		return Contact::set_firstName();
 	}
@@ -82,10 +82,10 @@ void	Contact::set_lastName() {
 			std::cout << std::endl;
 			PhoneBook::exit();
 		}
-		if (input.empty())
+		if (input.empty() || Contact::_isBlank(input))
 			std::cout << "This field is mandatory. ";
 	}
-	if (Contact::_validName(input)) {
+	if (!Contact::_validName(input)) {
 		std::cout << "This isn't valid my friend. ";
 		return Contact::set_lastName();
 	}
@@ -105,7 +105,7 @@ void	Contact::set_nickName() {
 			std::cout << std::endl;
 			PhoneBook::exit();
 		}
-		if (input.empty())
+		if (input.empty() || Contact::_isBlank(input))
 			std::cout << "This field is mandatory. ";
 	}
 	this->_nickName = input;
@@ -124,10 +124,10 @@ void	Contact::set_phNbr() {
 			std::cout << std::endl;
 			PhoneBook::exit();
 		}
-		if (input.empty())
+		if (input.empty() || Contact::_isBlank(input))
 			std::cout << "This field is mandatory. ";
 	}
-	if (Contact::_validPhoneNbr(input)) {
+	if (!Contact::_validPhoneNbr(input)) {
 		std::cout << "This isn't valid my friend. ";
 		return Contact::set_phNbr();
 	}
@@ -147,7 +147,7 @@ void	Contact::set_darkSec() {
 			std::cout << std::endl;
 			PhoneBook::exit();
 		}
-		if (input.empty())
+		if (input.empty() || Contact::_isBlank(input))
 			std::cout << "This field is mandatory. ";
 	}
 	this->_darkSecret = input;
@@ -155,31 +155,31 @@ void	Contact::set_darkSec() {
 }
 
 bool	Contact::_validPhoneNbr( std::string str ) {
-	for (int i = 0; i < str.length(); i++) {
-		if (!std::isdigit(str[i]) || !str[i] == '+' || !str[i] == '-')
-			return 1;
+	for (size_t i = 0; i < str.length(); i++) {
+		if (!std::isdigit(str[i]) && str[i] != '+' && str[i] != '-' && !std::isspace(str[i]))
+			return false;
 	}
-	return 0;
+	return true;
 }
 
 bool	Contact::_validName( std::string str ) {
-	for (int i = 0; i < str.length(); i++) {
-		if (!std::isalpha(str[i]) || !str[i] == '-' || !str[i] == '.')
-			return 1;
+	for (size_t i = 0; i < str.length(); i++) {
+		if (!std::isalpha(str[i]) && str[i] != '-' && str[i] != '.' && !std::isspace(str[i]))
+			return false;
 	}
-	return 0;
+	return true;
 }
 
 bool Contact::_isBlank( std::string& str ) {
     if (str.empty()) {
-        return 1;
+        return true;
     }
-    for (char c : str) {
-        if (!std::isspace(c)) {
-            return 0;
+    for (size_t i = 0; i < str.length(); i++) {
+        if (!std::isspace(str[i])) {
+            return false;
         }
     }
-    return 1;
+    return true;
 }
 
 void 	Contact::display_contact( int index ) {

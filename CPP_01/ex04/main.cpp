@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/24 15:17:50 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/11/28 12:48:22 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char **av) {
 
-	if (ac != 4 || !av[2][0] || !av[3][0]) {
+	if (ac != 4 || !av[2][0]) {
 		std::cout << "Error, arguments need to be a filename and two non-empty strings!" << std::endl;
 	}
 	else {

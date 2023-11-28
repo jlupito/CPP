@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:26 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/21 13:44:42 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:21:20 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ HumanB::~HumanB( void ) {
 }
 
 void HumanB::attack( void ) {
-	
-	std::cout << this->_name << " attacks with their " << (*this->_weapon).getType() << std::endl;
+	if (!(this->_weapon))
+		std::cout << this->_name << " attacks with their hands" << std::endl;
+	else
+		std::cout << this->_name << " attacks with their " << (*this->_weapon).getType() << std::endl;
 	return;
 }
 

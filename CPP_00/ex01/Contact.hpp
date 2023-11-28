@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:42:43 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/15 13:45:27 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/28 11:59:56 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Contact {
     std::string     _nickName;
     std::string     _phoneNumber;
     std::string     _darkSecret;
-    int             _indexContact;
+    // int             _indexContact;
     bool            _validPhoneNbr( std::string str );
     bool            _validName( std::string str );
     bool            _isBlank( std::string& str );

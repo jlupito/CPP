@@ -1,26 +1,39 @@
-NAME = brasedin
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = weapon
 
-SRCS = main.cpp
+CXX = c++
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-OBJS = $(SRCS:.cpp=.o)
+DEPS = ${OBJS:.o=.d}
+
+INC = HumanA.hpp HumanB.hpp Weapon.hpp
+  
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp \
+        
+OBJS_PATH = ./objs
+OBJS_NAMES = $(SRCS:.cpp=.o)
+OBJS = $(addprefix $(OBJS_PATH)/, $(OBJS_NAMES))
 
 all : $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo $(NAME) is built
+$(NAME): $(OBJS) $(INC)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	@echo $(NAME) is built 
+
+$(OBJS_PATH)/%.o: %.cpp
+	@mkdir -p $(OBJS_PATH)
+	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 
 clean :
-
-	@rm -rf $(OBJS)
-	@echo cleaning
+	@rm -rf $(OBJS_PATH)
+	@rm -rf $(DEPS)
+	@echo "cleaning"
 
 fclean : clean
 	@rm -rf $(NAME)
 	@echo "full clean"
 
-re : fclean all
+re: fclean all
 
-.PHONY	: all clean fclean re
+-include $(DEPS)
+
+.PHONY:    all clean fclean re bonus
