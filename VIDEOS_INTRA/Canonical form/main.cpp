@@ -6,28 +6,25 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:29:37 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/29 16:54:31 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:34:34 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Integer.class.hpp"
+#include "Sample.class.hpp"
 
 int	main() {
 
-	Integer		x( 30 );
-	Integer		y( 10 );
-	Integer		z( 0 );
+	Sample instance1;
+	Sample instance2( 42 );
+	Sample instance3( instance1 );
 
-	std::cout << "Value of x: " << x << std::endl;
-	std::cout << "Value of y: " << y << std::endl;
-	
-	y = Integer( 12 );
-	std::cout << "Value of y: " << y << std::endl;
-	
-	std::cout << "Value of z: " << z << std::endl;
-	z = x + y;
-	std::cout << "Value of z: " << z << std::endl;
+	std::cout << instance1 << std::endl;
+	std::cout << instance2 << std::endl;
+	std::cout << instance3 << std::endl;
+
+	instance3 = instance2;
+	std::cout << instance3 << std::endl;
 	
 	return 0;
 }

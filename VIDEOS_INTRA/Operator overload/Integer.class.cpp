@@ -1,51 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.class.cpp                                   :+:      :+:    :+:   */
+/*   Integer.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:20:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/28 16:31:17 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:48:13 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Sample.class.hpp"
+#include "Integer.class.hpp"
 
-Sample::Sample( void ) {
+Integer::Integer( int const n ) : _n( n ) {
 	
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor called with value " << n << std::endl;
 	return;
 }
 
-Sample::~Sample( void ) {
+Integer::~Integer( void ) {
 	
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called with value " << this->_n << std::endl;
 	return;
 }
 
-void	Sample::bar( char const c ) const {
+int	Integer::getValue( void ) const {
 	
-	std::cout << "Member function called with char overload: " << c << std::endl;
-	return;
+	return this->_n;
 }
 
-void	Sample::bar( int const n ) const {
+Integer &	Integer::operator=( Integer const & rhs ) {
 
-	std::cout << "Member function called with int overload: " << n << std::endl;
-	return;
-}
-
-void	Sample::bar( float const z ) const {
+	std::cout << "Assignation operator called from " << this->_n;
+	std::cout << " to " << rhs.getValue() << std::endl;
 	
-	std::cout << "Member function called with float overload: " << z << std::endl;
-	return;
+	this->_n = rhs.getValue();
+
+	return *this;
 }
 
-void	Sample::bar( Sample const & i ) const {
+Integer		Integer::operator+( Integer const & rhs ) const {
 
-	(void) i;
-	std::cout << "Member function called with Sample class overload" << std::endl;
-	return;
+	std::cout << "Addition operator called with " << this->_n;
+	std::cout << " and " << rhs.getValue() << std::endl;
+
+	return Integer( this->_n + rhs.getValue() );
+}
+
+std::ostream &	operator<<( std::ostream & o, Integer const & rhs ) {
+	
+	o << rhs.getValue();
+	return o;
 }
