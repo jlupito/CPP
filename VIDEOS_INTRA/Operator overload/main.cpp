@@ -5,32 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/28 16:04:46 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/10 16:29:37 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/11/28 16:36:38 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include <iostream>
+#include "Sample.class.hpp"
 
-int main() {
-	{
-		Weapon club = Weapon("crude spiked club");
-		
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+int	main() {
+
+	Sample instance;
+	Sample instance2;
+
+	instance.bar( 'a' );
+	instance.bar( 42 );
+	instance.bar( 3.14f );
+	instance.bar( instance2 );
+	
 	return 0;
 }
