@@ -1,13 +1,13 @@
-NAME = zombie
+NAME = HarlFilter
 
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 DEPS = ${OBJS:.o=.d}
 
-INC = Zombie.hpp 
+INC = Harl.hpp 
   
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp \
+SRCS = main.cpp Harl.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)
@@ -47,6 +47,8 @@ clean :
 fclean : clean
 	@rm -rf $(NAME)
 	@echo "$(RED)full clean$(RESET)"
+
+re: fclean all
 
 -include $(DEPS)
 

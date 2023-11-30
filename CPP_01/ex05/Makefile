@@ -13,24 +13,40 @@ OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)
 OBJS = $(addprefix $(OBJS_PATH)/, $(OBJS_NAMES))
 
+TOTAL_FILES := $(words $(SRCS))
+CURRENT_FILE = 0
+PERCENTAGE = 0
+
+GREEN = \033[32m
+RED = \033[31m
+YELLOW = \033[33m
+RESET = \033[0m
+
+define update_progress
+    $(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
+    $(eval PERCENTAGE=$(shell echo $$(($(CURRENT_FILE)*100/$(TOTAL_FILES)))))
+    @printf "$(GREEN)\rCompiling [%-20s] %d%%" "####################" "$(PERCENTAGE)"
+endef
+
 all : $(NAME)
 
 $(NAME): $(OBJS) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@echo $(NAME) is built 
+	@echo "\n$(NAME) is built$(RESET)"
 
 $(OBJS_PATH)/%.o: %.cpp
 	@mkdir -p $(OBJS_PATH)
+	$(call update_progress)
 	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 
 clean :
 	@rm -rf $(OBJS_PATH)
 	@rm -rf $(DEPS)
-	@echo "cleaning"
+	@echo "$(YELLOW)cleaning$(RESET)"
 
 fclean : clean
 	@rm -rf $(NAME)
-	@echo "full clean"
+	@echo "$(RED)full clean$(RESET)"
 
 re: fclean all
 
