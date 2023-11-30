@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/30 17:09:34 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:41:40 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
     void    setRawBits( int const raw );
 
 	Fixed( const int intValue );
-	Fixed( const int floatvalue );
+	Fixed( const int floatValue );
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 	
