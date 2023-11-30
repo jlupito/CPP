@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:26 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/28 10:57:56 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/11/30 11:13:52 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,16 @@
 		for (int i = 0; i < 4; i++) {
 			if (level == complainType[i]) {
 				(this->*harlFunctionPtr[i])();
-			}
-			else {
-				std::cout << "Harl only complains with a valid LEVEL entry.\n" << std::endl;
-				return ;
+				return;
 			}
 		}
+		std::cout << "Harl only complains with a valid LEVEL entry.\n" << std::endl;
 		return ;
 	}
 
 	void Harl::_debug( void ) {
 		std::cout << "[ DEBUG ]\n"
-			<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do !\n" << std::endl;
+			<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger.\nI really do !\n" << std::endl;
 		return ;
 	}
 
@@ -56,6 +54,6 @@
 
 	void Harl::_error( void ) {
 		std::cout << "[ ERROR ]\n"
-			<< "This is unacceptable ! I want to speak to the manager now." << std::endl;
+			<< "This is unacceptable ! I want to speak to the manager now.\n" << std::endl;
 		return ;
 	}

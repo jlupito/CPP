@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/25 10:54:08 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:57:09 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-#include <string>
 #include <iostream>
-#include <iomanip>
 
-class Harl {
+class Fixed {
     
-    public:
-        Harl(void);
-        ~Harl(void);
-        void complain( std::string level );
+public:
 
-    private:
-        void _debug(void);
-        void _warning(void);
-        void _info(void);
-        void _error(void);
+	Fixed( void );  // constructeur par defaut
+	Fixed( Fixed const &copy ); // constructeur de recopie
+	~Fixed( void ); //destructeur
+	Fixed &	operator=( Fixed const &copy); // surcharge operateur d assignation
+
+    int     getRawBits( void ) const;
+    void    setRawBits( int const raw );
+    
+private:
+
+    int             	_value;
+    static int  const   _bits = 8;
+    
 };
 
-//typedef void	(Harl::* harlFunctionPtr)(void);
 
 #endif

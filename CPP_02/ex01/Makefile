@@ -32,7 +32,7 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@echo "\n$(NAME) is built ✅ $(RESET)"
+	@echo "\n$(NAME) is built$(RESET)"
 
 $(OBJS_PATH)/%.o: %.cpp
 	@mkdir -p $(OBJS_PATH)
