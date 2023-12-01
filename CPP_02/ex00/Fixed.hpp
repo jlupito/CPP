@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/11/30 16:57:09 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:47:27 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
     
 private:
 
-    int             	_value;
+    int             	_rawBits;
     static int  const   _bits = 8;
     
 };

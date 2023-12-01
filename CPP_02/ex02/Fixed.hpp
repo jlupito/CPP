@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/01 10:48:53 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/01 11:59:17 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,36 @@ public:
 	Fixed( void );  // constructeur par defaut
 	Fixed( Fixed const &copy ); // constructeur de recopie
 	~Fixed( void ); //destructeur
-	Fixed &operator=( Fixed const &copy); // surcharge operateur d assignation
+	Fixed( const int intValue );
+	Fixed( const float floatValue );
+	
+	Fixed &operator=( Fixed const &copy);
+	Fixed operator+( Fixed const &rhs) const;
+	Fixed operator-( Fixed const &rhs) const;
+	Fixed operator*( Fixed const &rhs) const;
+	Fixed operator/( Fixed const &rhs) const;
+	
+	bool operator>( Fixed const &rhs) const;
+	bool operator<( Fixed const &rhs) const;
+	bool operator<=( Fixed const &rhs) const;
+	bool operator>=( Fixed const &rhs) const;
+	bool operator==( Fixed const &rhs) const;
+	bool operator!=( Fixed const &rhs) const;
+	
+	Fixed &operator++( void );
+	Fixed &operator--( void );
+	Fixed operator++( int );
+	Fixed operator--( int );
 
     int     getRawBits( void ) const;
     void    setRawBits( int const raw );
-
-	Fixed( const int intValue );
-	Fixed( const float floatValue );
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 	
+	static Fixed &min( Fixed &a, Fixed &b);
+	static Fixed &max( Fixed &a, Fixed &b);
+	static Fixed const &min( Fixed const &a, Fixed const &b);
+	static Fixed const &max( Fixed const &a, Fixed const &b);
     
 private:
 
