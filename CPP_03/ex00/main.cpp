@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 17:32:53 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/04 15:10:31 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/12/04 18:07:41 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "ClapTrap.hpp"
 
-Zombie* zombieHorde( int N, std::string name ) {
+int main( void ) {
 	
-	Zombie*	horde = new Zombie[N];
-	for (int i = 0; i < N; i++) {
-	horde[i].set_name(name);
+	ClapTrap	riri("Riri");
+	ClapTrap	fifi("Fifi");
+	ClapTrap	loulou("Loulou");
+	
+	std::cout << "<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
+	for (int i = 0; i < 10; i++)
+	{
+		riri.attack("Fifi");
+		fifi.takeDamage(2);
+		loulou.beRepaired(3);
+		std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
 	}
-	
-	return horde;
+
+	return 0;
 }

@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   heritage3.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 17:32:53 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/04 15:10:31 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/11/10 15:20:32 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/12/04 16:36:37 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include <string>
 
-Zombie* zombieHorde( int N, std::string name ) {
+class Quadruped { // can access name, run() and legs
 	
-	Zombie*	horde = new Zombie[N];
-	for (int i = 0; i < N; i++) {
-	horde[i].set_name(name);
-	}
+	private:
+		std::string		name; // seulement accessible par un objet quadrupede
+
+	protected:
+		leg		legs[4]; // accessible par quadrupede ou objet derive'
+
+	public:
+		void	run(); // accessible de partout
+		
+};
+
+class Dog : public Quadruped { // peut acceder seulement a legs et run()
 	
-	return horde;
+};
+
+int main() { // peut seulement acceder a run()
 }
