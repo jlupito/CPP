@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:42:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/01 11:59:17 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:40:19 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,24 @@ public:
 	Fixed( const int intValue );
 	Fixed( const float floatValue );
 	
-	Fixed &operator=( Fixed const &copy);
-	Fixed operator+( Fixed const &rhs) const;
-	Fixed operator-( Fixed const &rhs) const;
-	Fixed operator*( Fixed const &rhs) const;
-	Fixed operator/( Fixed const &rhs) const;
-	
-	bool operator>( Fixed const &rhs) const;
-	bool operator<( Fixed const &rhs) const;
-	bool operator<=( Fixed const &rhs) const;
-	bool operator>=( Fixed const &rhs) const;
-	bool operator==( Fixed const &rhs) const;
-	bool operator!=( Fixed const &rhs) const;
+	Fixed &operator=( const Fixed &copy);
+	Fixed operator+( const Fixed &rhs) const;
+	Fixed operator-( const Fixed &rhs) const;
+	Fixed operator*( const Fixed &rhs) const;
+	Fixed operator/( const Fixed &rhs) const;
 	
 	Fixed &operator++( void );
 	Fixed &operator--( void );
 	Fixed operator++( int );
 	Fixed operator--( int );
-
+	
+	bool operator>( const Fixed &rhs) const;
+	bool operator<( const Fixed &rhs) const;
+	bool operator<=( const Fixed &rhs) const;
+	bool operator>=( const Fixed &rhs) const;
+	bool operator==( const Fixed &rhs) const;
+	bool operator!=( const Fixed &rhs) const;
+	
     int     getRawBits( void ) const;
     void    setRawBits( int const raw );
 	float	toFloat( void ) const;
