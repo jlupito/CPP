@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:16:59 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/04 18:37:36 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:13:17 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ScavTrap : public ClapTrap {
     
 public:
 
+	ScavTrap(void);
 	ScavTrap( std::string name );  // constructeur par defaut
 	ScavTrap( ScavTrap const &copy ); // constructeur de recopie
 	~ScavTrap( void ); //destructeur
@@ -27,15 +28,7 @@ public:
 	ScavTrap &operator=( const ScavTrap &copy); // operateur d affectation
 
 	void	attack(const std::string& target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
-    
-private:
-
-    std::string     _name;
-    int				_hitPts;
-	int				_energyPts;
-	int				_attackPts;
+	void	guardGate( void );	
     
 };
 
