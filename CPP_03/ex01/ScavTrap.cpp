@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:16:55 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/05 17:18:08 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/06 17:58:05 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void) : ClapTrap() {
-	std::cout << "Default ScavTrap " << this->_name << " is created." << std::endl;
+ScavTrap::ScavTrap( void) : 
+			_name("Default ScavTrap"), _hitPts(100), _energyPts(50), _attackPts(20) {
+	std::cout << this->_name << " is created." << std::endl;
 }
 
 ScavTrap::ScavTrap( std::string name) : 
 			_name(name), _hitPts(100), _energyPts(50), _attackPts(20) {
-	std::cout << "Default ScavTrap " << name << " is created." << std::endl;
+	std::cout << "Default ScavTrap " << this->getName() << " is created." << std::endl;
 }
 
 ScavTrap::ScavTrap( const ScavTrap &scavTrap ) : ClapTrap(scavTrap._name) {
@@ -30,7 +31,7 @@ ScavTrap::ScavTrap( const ScavTrap &scavTrap ) : ClapTrap(scavTrap._name) {
 }
 
 ScavTrap::~ScavTrap( void ) {
-	std::cout << "Default ScavTrap " << _name << " is destroyed." << std::endl;
+	std::cout << "Default ScavTrap " << this->getName() << " is destroyed." << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=( const ScavTrap &copy) {
@@ -56,4 +57,16 @@ void	ScavTrap::attack(const std::string& target) {
 	else if (this->getEnergyPts() == 0) {
 		std::cout << "ScavTrap " << this->getName() << " needs Energy points to attack!" << std::endl;
 	}
+}
+
+void	ScavTrap::guardGate(void) {
+		if (this->getHitPts() > 0) {
+		std::cout << "ScavTrap " << this->getName()
+			<< " is now in Gate keeper mode!" << std::endl;
+		}
+		else {
+		std::cout << "ScavTrap " << this->getName()
+			<< " cannot got to Gate keeper mode because he's dead!" << std::endl;
+		}
+		
 }

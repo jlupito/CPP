@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:20:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/04 16:30:50 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:19:18 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 class Animal {
 	
 	private:
-		int		_numberofLegs;
+		int		_numberOfLegs;
 
 	public:
-		Animal(;
-		Animal(Animal const &));
+		Animal();
+		Animal(Animal const &);
 		Animal& operator=(Animal const &);
 		~Animal();
 
@@ -29,22 +29,22 @@ class Animal {
 		void	walk(int distance);
 };
 
-class Cat : public Animal { // signifie que cest une animal
+class Cat : public Animal { // signifie que cest un animal
 	
 	public:
-		Cat(;
-		Cat(Cat const &));
+		Cat();
+		Cat(Cat const &);
 		Cat& operator=(Cat const &);
 		~Cat();
 
 		void	scornSomeone(std::string const & target);
 }
 
-class Pony : public Animal {
+class Pony : public Animal { 
 	
 	public:
-		Pony(;
-		Pony(Pony const &));
+		Pony();
+		Pony(Pony const &);
 		Pony& operator=(Pony const &);
 		~Pony();
 

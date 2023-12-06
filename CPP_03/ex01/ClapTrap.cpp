@@ -6,15 +6,15 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:39 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/04 18:06:25 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/06 14:19:05 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( std::string name) : 
-			_name(name), _hitPts(10), _energyPts(10), _attackPts(0) {
-	std::cout << name << " is created." << std::endl;
+ClapTrap::ClapTrap( std::string name ) : 
+			_name( name ), _hitPts(10), _energyPts(10), _attackPts(0) {
+	std::cout << "Default Claptrap " << name << " is created." << std::endl;
 }
 
 ClapTrap::ClapTrap( ClapTrap const &copy ) {
@@ -22,10 +22,10 @@ ClapTrap::ClapTrap( ClapTrap const &copy ) {
 }
 
 ClapTrap::~ClapTrap( void ) {
-	std::cout << this->_name << " is destroyed." << std::endl;
+	std::cout << "Default Claptrap " << this->getName() << " is destroyed." << std::endl;
 }
 
-ClapTrap &ClapTrap::operator=( const ClapTrap &copy) {
+ClapTrap &ClapTrap::operator=( const ClapTrap &copy ) {
 	std::cout << "Called assignment operator." << std::endl;
 	if (this != &copy) {
 		this->_name = copy.getName();
@@ -33,10 +33,10 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &copy) {
 		this->setEnergyPts(copy.getEnergyPts());
 		this->setAttackPts(copy.getAttackPts());
 	}
-	return (*this);
+	return ( *this );
 }
 
-void	ClapTrap::attack(const std::string& target) {
+void	ClapTrap::attack( const std::string& target ) {
 	if (this->getHitPts() > 0) {
 		this->_energyPts--;
 		std::cout << "ClapTrap " << this->getName() << " attacks " << target 
@@ -50,7 +50,7 @@ void	ClapTrap::attack(const std::string& target) {
 	}
 }
 
-void	ClapTrap::takeDamage(unsigned int amount) {
+void	ClapTrap::takeDamage( unsigned int amount ) {
 	if (this->_hitPts > 0) {
 		this->_hitPts--;
 		std::cout << "ClapTrap " << this->getName() << " has been attacked and looses " 
@@ -62,7 +62,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 	}
 }
 
-void	ClapTrap::beRepaired(unsigned int amount) {
+void	ClapTrap::beRepaired( unsigned int amount ) {
 	if (this->getEnergyPts() > 0) {
 		this->_energyPts--;
 		this->_hitPts += amount;

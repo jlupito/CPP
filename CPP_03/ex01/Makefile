@@ -7,7 +7,7 @@ DEPS = ${OBJS:.o=.d}
 
 INC = ClapTrap.hpp ScavTrap.hpp \
   
-SRCS = main.cpp ClapTrap.cpp ScavTrap.hpp \
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)
