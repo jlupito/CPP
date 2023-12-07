@@ -1,13 +1,13 @@
-NAME = scavtrap
+NAME = fragtrap
 
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 DEPS = ${OBJS:.o=.d}
 
-INC = ClapTrap.hpp ScavTrap.hpp \
+INC = ClapTrap.hpp FragTrap.hpp ScavTrap.hpp \
   
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp \
+SRCS = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)
