@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/04 14:56:55 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/12/07 16:57:40 by jarthaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_HPP
+# define DOG_HPP
+
+#include <iostream>
+#include <cmath>
+
+class Dog : public Animal {
+    
+public:
+
+	Dog( void );  // constructeur par defaut
+	Dog( Dog const &copy ); // constructeur de recopie
+	~Dog( void ); //destructeur
+	
+	Dog &operator=( const Dog &copy); // operateur d affectation
+    
+};
+
+#endif
