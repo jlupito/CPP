@@ -6,19 +6,26 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:16:55 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/06 17:58:05 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:02:02 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap( void) : 
-			_name("Default ScavTrap"), _hitPts(100), _energyPts(50), _attackPts(20) {
+ScavTrap::ScavTrap( void) : ClapTrap("Default") {
+			_name = "Default";
+			_hitPts = 100;
+			_energyPts = 50;
+			_attackPts = 20;
 	std::cout << this->_name << " is created." << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string name) : 
-			_name(name), _hitPts(100), _energyPts(50), _attackPts(20) {
+ScavTrap::ScavTrap( std::string name) : ClapTrap(name) {
+			_name = name;
+			_hitPts = 100;
+			_energyPts = 50;
+			_attackPts = 20;
 	std::cout << "Default ScavTrap " << this->getName() << " is created." << std::endl;
 }
 
@@ -68,5 +75,4 @@ void	ScavTrap::guardGate(void) {
 		std::cout << "ScavTrap " << this->getName()
 			<< " cannot got to Gate keeper mode because he's dead!" << std::endl;
 		}
-		
 }

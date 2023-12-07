@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:16:59 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/06 12:39:33 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:56:34 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 
 	void	attack( const std::string& target );
 	void	guardGate( void );
-    
 };
 
 #endif

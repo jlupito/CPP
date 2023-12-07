@@ -6,13 +6,13 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:39 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/06 14:19:05 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:55:19 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( std::string name ) : 
+ClapTrap::ClapTrap( std::string name ) :
 			_name( name ), _hitPts(10), _energyPts(10), _attackPts(0) {
 	std::cout << "Default Claptrap " << name << " is created." << std::endl;
 }
