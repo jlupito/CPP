@@ -34,7 +34,7 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@echo "\n🪄 $(BOLD)$(NAME)$(UNBOLD) is built$(RESET)"
+	@echo "\n🪄 $(BOLD) $(NAME)$(UNBOLD) is built$(RESET)"
 
 $(OBJS_PATH)/%.o: %.cpp
 	@mkdir -p $(OBJS_PATH)
