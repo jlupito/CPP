@@ -6,14 +6,14 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:20:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/07 17:37:01 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:49:12 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 
-// virtual : le limkage devient dyna;ique et plus statique
+// virtual : le limkage devient dynamique et non plus statique
 // a la compilation on utilise le type de la variable pour
 // savoir son comportement et ca ne change plus apres.
 // rend l appel de fonction dynamique pour trouver le type reel

@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:55 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/08 15:10:27 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:49:09 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 #include <iostream>
 #include <cmath>
 
-class Dog : public Animal {
-    
-public:
+class WrongAnimal {
 
-	Dog( void );  // constructeur par defaut
-	Dog( Dog const &copy ); // constructeur de recopie
-	~Dog( void ); //destructeur
+	public:
+
+		WrongAnimal( void );  // constructeur par defaut
+		WrongAnimal( std::string type );
+		WrongAnimal( WrongAnimal const &copy ); // constructeur de recopie
+		~WrongAnimal( void ); //destructeur
+		
+		WrongAnimal &operator=( const WrongAnimal &copy); // operateur d affectation
+
+		void 			makeSound( void ) const;
+		std::string 	getType( void ) const;
+		
+	protected:
+
+		std::string     _type;
 	
-	Dog &operator=( const Dog &copy); // operateur d affectation
-
-	virtual void makeSound( void ) const;
-    
 };
 
 #endif
