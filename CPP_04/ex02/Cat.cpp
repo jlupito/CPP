@@ -6,15 +6,15 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:39 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/11 16:41:35 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:52:10 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-Cat::Cat( void ) : Animal("Cat") {
+Cat::Cat( void ) : AAnimal("Cat") {
 	std::cout << "Default Cat constructor is created." << std::endl;
 	this->_brain = new Brain;
 }

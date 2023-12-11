@@ -6,11 +6,11 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/11 16:39:30 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:54:44 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
@@ -18,10 +18,10 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const Animal* c(j);
+	const AAnimal* meta = new AAnimal();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
+	const AAnimal* c(j);
 	const WrongAnimal* z = new WrongCat();
 
 	std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
@@ -50,7 +50,7 @@ int main()
 	std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
 	std::cout << "Test 3 : turning a Cat into a Dog via the = operator" << std::endl;
 	delete i;
-	const Animal* k = new Dog();
+	const AAnimal* k = new Dog();
 	i = k;
 	std::cout << "i adress " << &i << std::endl;
 	std::cout << "k adress " << &k << std::endl;
@@ -60,7 +60,7 @@ int main()
 	
 	std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
 	std::cout << "Test 4 : leak check post copy constructor" << std::endl;
-	Animal p(*i);
+	AAnimal p(*i);
 	std::cout << "p->type = " << p.getType() << std::endl;
 	std::cout << "i->type = " << i->getType() << std::endl;
 	std::cout << "i adress = " << i << std::endl;
@@ -75,7 +75,7 @@ int main()
 
 	std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
 	std::cout << "Test 5 : leak check for an array of cats and dogs stored in a Animal tab" << std::endl;
-	const Animal* tab[4] = {new Cat(), new Dog(), new Cat(), new Dog()};
+	const AAnimal* tab[4] = {new Cat(), new Dog(), new Cat(), new Dog()};
 	int iterator = 0;
 	while (iterator < 4)
 	{

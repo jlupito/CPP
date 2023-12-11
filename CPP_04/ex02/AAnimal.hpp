@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:55 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/09 11:53:44 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:51:27 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 #include <iostream>
 
-class Animal {
+class AAnimal {
     
 public:
 
-	Animal( void );  // constructeur par defaut
-	Animal( std::string type );
-	Animal( Animal const &copy ); // constructeur de recopie
-	virtual ~Animal( void ); //destructeur
+	AAnimal( void );  // constructeur par defaut
+	AAnimal( std::string type );
+	AAnimal( AAnimal const &copy ); // constructeur de recopie
+	virtual ~AAnimal( void ); //destructeur
 	
-	Animal &operator=( const Animal &copy); // operateur d affectation
+	AAnimal &operator=( const AAnimal &copy); // operateur d affectation
 
-	virtual void 			makeSound( void ) const;
-	virtual std::string 	getType( void ) const;
+	virtual void 			makeSound( void ) const = 0;
+	virtual std::string 	getType( void ) const = 0;
     
 protected:
 

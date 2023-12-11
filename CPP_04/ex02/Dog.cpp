@@ -6,15 +6,15 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:39 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/11 16:41:06 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:52:14 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Brain.hpp"
 
-Dog::Dog( void ) : Animal("Dog") {
+Dog::Dog( void ) : AAnimal("Dog") {
 	std::cout << "Default Dog constructor is created." << std::endl;
 	_brain = new Brain();
 }
