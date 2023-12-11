@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 16:21:02 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/11 15:05:15 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/12/04 14:56:55 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/12/09 11:50:00 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 #include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Brain {
+class Dog : public Animal {
+    
+public:
+
+	Dog( void );  // constructeur par defaut
+	Dog( Dog const &copy ); // constructeur de recopie
+	~Dog( void ); //destructeur
 	
-	public:
-		Brain( void );
-		~Brain( void );
-		Brain( Brain const &copy ); // constructeur de recopie
-		Brain &operator=( const Brain &copy); // operateur d affectation
-		std::string ideas[100];
+	Dog &operator=( const Dog &copy); // operateur d affectation
+
+	virtual void makeSound( void ) const;
+	Brain* getBrain() const;
+
+private:
+
+	Brain*	_brain;
+    
 };
 
 #endif
