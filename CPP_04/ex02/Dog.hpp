@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:55 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/11 16:52:17 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/12 10:35:41 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	
 	Dog &operator=( const Dog &copy); // operateur d affectation
 
-	virtual void makeSound( void ) const;
+	void makeSound( void ) const;
 	Brain* getBrain() const;
 
 private:

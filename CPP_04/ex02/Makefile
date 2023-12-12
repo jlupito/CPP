@@ -27,7 +27,7 @@ RESET = \033[0m
 define update_progress
     $(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
     $(eval PERCENTAGE=$(shell echo $$(($(CURRENT_FILE)*100/$(TOTAL_FILES)))))
-    @printf "$(GREEN)\rCompiling [%-20s] %d%% $(RESET)" "####################" "$(PERCENTAGE)"
+	@printf "$(GREEN)\rCompiling [%-20s] %d%% $(RESET)" "####################" "$(PERCENTAGE)"
 endef
 
 all : $(NAME)

@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/11 16:54:44 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/12 11:40:15 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int main()
 {
-	const AAnimal* meta = new AAnimal();
+	//const AAnimal* meta = new AAnimal();
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
 	const AAnimal* c(j);
@@ -32,8 +32,8 @@ int main()
 	j->makeSound();
 	std::cout << "Sound of Z, a WrongCat : " << std::endl;
 	z->makeSound();
-	std::cout << "Sound of meta, an Animal : " << std::endl;
-	meta->makeSound();
+	// std::cout << "Sound of meta, an Animal : " << std::endl;
+	// meta->makeSound();
 
 	std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
 	std::cout << "Test 2 : check the types of animals, and make sound post copy constructors" << std::endl;
@@ -60,16 +60,16 @@ int main()
 	
 	std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
 	std::cout << "Test 4 : leak check post copy constructor" << std::endl;
-	AAnimal p(*i);
-	std::cout << "p->type = " << p.getType() << std::endl;
-	std::cout << "i->type = " << i->getType() << std::endl;
-	std::cout << "i adress = " << i << std::endl;
-	std::cout << "p adress = " << &p << std::endl;
-	if (&p != i && i->getType() == p.getType())
-		std::cout << "SUCCESS : same value but not the same addresses" << std::endl;
+	// AAnimal p(*i);
+	// std::cout << "p->type = " << p.getType() << std::endl;
+	// std::cout << "i->type = " << i->getType() << std::endl;
+	// std::cout << "i adress = " << i << std::endl;
+	// std::cout << "p adress = " << &p << std::endl;
+	// if (&p != i && i->getType() == p.getType())
+	// 	std::cout << "SUCCESS : same value but not the same addresses" << std::endl;
 	delete i;
-	std::cout << "after I deleted i, p = " << p.getType() << std::endl;
-	delete meta;
+	// std::cout << "after I deleted i, p = " << p.getType() << std::endl;
+	// delete meta;
 	delete z;
 	delete c;
 
@@ -111,7 +111,5 @@ int main()
 	if (goodDoggy.getBrain()->ideas[0] != badDoggy.getBrain()->ideas[0])
 		std::cout << "FAILURE, THE CONTENT ISNT COPIED" << std::endl;
 	
-
-
 	return 0;
 }
