@@ -5,32 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/12 15:32:28 by jarthaud         ###   ########.fr       */
+/*   Created: 2023/12/12 11:54:10 by jarthaud          #+#    #+#             */
+/*   Updated: 2023/12/12 14:16:57 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+int	main(void) {
+	
+	// MateriaSource* src = new MateriaSource();
+	// src->learnMateria(new Ice());
+	// src->learnMateria(new Cure());
+	
+	// ICharacter* me = new Character("me");
+	
+	// AMateria* tmp;
+	// tmp = src->createMateria("ice");
+	// me->equip(tmp);
+	// tmp = src->createMateria("cure");
+	// me->equip(tmp);
+	
+	// ICharacter* bob = new Character("bob");
 
-int main() {
-	{
-		Weapon club = Weapon("crude spiked club");
-		
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+	// me->use(0, *bob);
+	// me->use(1, *bob);
+
+	// delete bob;
+	// delete me;
+	// delete src;
+	
 	return 0;
+
 }
