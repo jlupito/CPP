@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:36:29 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/12 16:18:54 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/13 19:18:08 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@
 #include "Cure.hpp"
 #include "ICharacter.hpp"
 
+class AMateria;
+class MateriaSource;
+
 class Character : public ICharacter {
 	
 	private:
 		AMateria*		_inventory[4];
+		int				_nbItems;
 		std::string 	_name;
 		
 	public:

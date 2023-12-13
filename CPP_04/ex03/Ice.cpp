@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:41:10 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/12 14:23:42 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/13 19:30:02 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
 #include "Ice.hpp"
 
 Ice::Ice( void ) : AMateria() {

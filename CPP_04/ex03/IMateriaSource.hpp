@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:34:02 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/12 14:35:16 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/13 19:44:19 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 #include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "ICharacter.hpp"
+
+class AMateria;
 
 class IMateriaSource {
+	
 	public:
 		virtual 			~IMateriaSource() {}
 		virtual void 		learnMateria(AMateria*) = 0;

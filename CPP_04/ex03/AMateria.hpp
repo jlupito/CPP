@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 11:54:44 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/12 16:44:18 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/13 19:28:21 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
 
-class AMateria
-{
+class ICharacter;
+
+class AMateria {
+	
 	protected:
 		std::string	_type;
 		

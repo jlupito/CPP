@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:25:10 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/12 16:44:13 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/13 19:18:36 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+
+class AMateria;
 
 class ICharacter {
 	public:
