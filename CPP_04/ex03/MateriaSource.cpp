@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:42:57 by jlupito           #+#    #+#             */
-/*   Updated: 2023/12/13 22:01:25 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/14 13:53:21 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,35 @@
 			}
 		}
 		return (*this);
+	}
+
+    void 		MateriaSource::learnMateria(AMateria* m) {
+		int i = 0;
+		if (!m) {
+			std::cout << "There is no Materia to learn." << std::endl;
+			return ;
+		}
+		while (this->_inventory[i] && i < 4) {
+			if (this->_inventory[i]->getType() == m->getType()) {
+				std::cout << "This materia has already been learnt." << std::endl;
+				delete m;
+				return ;
+			}
+			i++;
+		}
+		if (i >= 4 || this->_nbItems == 4) {
+			std::cout << "Inventory is full, drop one materia first." << std::endl;
+			return ;
+		}
+		else {
+			_inventory[i] = m;
+			std::cout << "Materia " << m->getType() << " has been added at position #" << i - 1 << " in inventory." << std::endl;
+			this->_nbItems++;
+		}
+	}
+	
+	AMateria* 	MateriaSource::createMateria(std::string const &type) {
+		if (this->_inventory[i].getType() == type) {
+			return ;
+		}
 	}

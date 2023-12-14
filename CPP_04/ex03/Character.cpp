@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:36:14 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/13 21:48:40 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/14 12:08:03 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@
 	}
 
 	void Character::equip(AMateria* m) {
+		int i = 0;
 		if (!m) {
 			std::cout << "Nothing to pick up." << std::endl;
 			return ;
@@ -61,7 +62,6 @@
 		if (this->_nbItems == 0)
 			this->_inventory[0] = m->clone();
 		else if (this->_nbItems < 4) {
-			int i = 0;
 			while (i < 4 && this->_inventory[i])
 				i++;
 			this->_inventory[i] = m->clone();

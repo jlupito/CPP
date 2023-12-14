@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:43:04 by jlupito           #+#    #+#             */
-/*   Updated: 2023/12/13 20:20:52 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/14 12:04:57 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class MateriaSource : public IMateriaSource {
 		virtual ~MateriaSource( void ); // destructeur
 		MateriaSource &operator=( const MateriaSource &rhs); // operateur d affectation
     
-        virtual void 		learnMateria(AMateria*);
-		virtual AMateria* 	createMateria(std::string const & type);
+        virtual void 		learnMateria(AMateria* m);
+		virtual AMateria* 	createMateria(std::string const &type);
 
     private:
         int             _nbItems;
