@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:42:57 by jlupito           #+#    #+#             */
-/*   Updated: 2023/12/14 13:53:21 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/15 08:42:33 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,18 @@
 	}
 	
 	AMateria* 	MateriaSource::createMateria(std::string const &type) {
-		if (this->_inventory[i].getType() == type) {
-			return ;
-		}
+		if (!this->_inventory == 0)
+        {
+            std::cout << "There is not materia." << std::endl;
+            return 0;
+        }
+        for (int i = 0; i < this->_NbItems && i < 4; i++)
+        {
+            if (this->_inventory[i]->getType() == type)
+            {
+                std::cout << "Materia " << type << " has been added at position #" << i - 1 << " in inventory." << std::endl;
+                return this->_inventory[i]->clone();
+            }
+        }
+        return 0;
 	}
