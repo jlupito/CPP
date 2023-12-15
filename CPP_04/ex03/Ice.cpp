@@ -3,30 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:41:10 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/13 19:30:02 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/15 16:28:36 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
+# define _GREY 	"\033[90m"
+# define _END "\1\033[0m\2"
+
 Ice::Ice( void ) : AMateria() {
-	std::cout << "Default Ice constructor is created." << std::endl;
+	std::cout << _GREY "Default Ice constructor is called." _END << std::endl;
+	this->_type = "ice";
 }
 
 Ice::Ice( Ice const &copy ) : AMateria() {
-	std::cout << "Copy Ice constructor is created." << std::endl;
+	std::cout << _GREY "Copy Ice constructor is called." _END << std::endl;
 	*this = copy;
 }
 
 Ice::~Ice( void ) {
-	std::cout << "Default Ice destructor is created." << std::endl;
+	std::cout << _GREY "Default Ice destructor is called." _END << std::endl;
 }
 
 Ice &Ice::operator=( const Ice &rhs) {
-		std::cout << "Ice assignment operator is called." << std::endl;
+		std::cout << _GREY "Ice assignment operator is called." _END << std::endl;
 	if (this != &rhs) {
 		this->_type = rhs.getType();
 	}

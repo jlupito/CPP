@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:25:10 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/13 19:18:36 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/15 11:24:39 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-#include "AMateria.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+// #include "AMateria.hpp"
+// #include "Ice.hpp"
+// #include "Cure.hpp"
 
 class AMateria;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:36:29 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/13 19:18:08 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/15 11:31:36 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Character : public ICharacter {
 	
 	private:
 		AMateria*		_inventory[4];
-		int				_nbItems;
 		std::string 	_name;
+		int				_nbItems;
 		
 	public:
 		Character( std::string name ); // constructeur par defaut

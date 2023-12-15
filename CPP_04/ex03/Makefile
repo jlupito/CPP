@@ -5,9 +5,9 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 DEPS = ${OBJS:.o=.d}
 
-INC = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp \
+INC = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp \
   
-SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp \
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)

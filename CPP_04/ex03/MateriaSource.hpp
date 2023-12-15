@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:43:04 by jlupito           #+#    #+#             */
-/*   Updated: 2023/12/14 12:04:57 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/15 11:25:25 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
-#include "AMateria.hpp"
+// #include "AMateria.hpp"
 #include "ICharacter.hpp"
+
+class AMateria;
 
 class MateriaSource : public IMateriaSource {
     

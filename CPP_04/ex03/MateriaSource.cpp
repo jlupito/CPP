@@ -3,24 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:42:57 by jlupito           #+#    #+#             */
-/*   Updated: 2023/12/15 08:42:33 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/15 16:25:59 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+# define _GREY 	"\033[90m"
+# define _END "\1\033[0m\2"
 
 	MateriaSource::MateriaSource( ) : _nbItems ( 0 ) {
-		std::cout << "Default MateriaSource constructor is created." << std::endl;
+		std::cout << _GREY "Default MateriaSource constructor is called." _END << std::endl;
 		for (int i = 0; i < 4; i++) {
 			this->_inventory[i] = NULL;
 		}
 	}
 	
 	MateriaSource::MateriaSource( MateriaSource const &copy ) {
-		std::cout << "Copy MateriaSource destructor is created." << std::endl;
+		std::cout << _GREY "Copy MateriaSource destructor is called." _END << std::endl;
 		for (int i = 0; i < 4; i++) {
 			if (this->_inventory[i])
 				this->_inventory[i] = (copy._inventory[i])->clone();
@@ -28,7 +30,7 @@
 	}
 	
 	MateriaSource::~MateriaSource( void ) {
-		std::cout << "Default MateriaSource destructor is created." << std::endl;
+		std::cout << _GREY "Default MateriaSource destructor is called." _END << std::endl;
 		for (int i = 0; i < 4; i++) {
 			if (this->_inventory[i])
 				delete this->_inventory[i];
@@ -36,7 +38,7 @@
 	}
 	
 	MateriaSource &MateriaSource::operator=( const MateriaSource &rhs) {
-		std::cout << "MateriaSource assignment operator is called." << std::endl;
+		std::cout << _GREY "MateriaSource assignment operator is called." _END << std::endl;
 		if (this != &rhs) {
 			for (int i = 0; i < 4; i++) {
 				if (rhs._inventory[i]) {
@@ -68,22 +70,22 @@
 		}
 		else {
 			_inventory[i] = m;
-			std::cout << "Materia " << m->getType() << " has been added at position #" << i - 1 << " in inventory." << std::endl;
+			std::cout << "Materia " << m->getType() << " has been learnt at position #" << i << " in inventory." << std::endl;
 			this->_nbItems++;
 		}
 	}
 	
 	AMateria* 	MateriaSource::createMateria(std::string const &type) {
-		if (!this->_inventory == 0)
+		if (!this->_inventory[0])
         {
             std::cout << "There is not materia." << std::endl;
             return 0;
         }
-        for (int i = 0; i < this->_NbItems && i < 4; i++)
+        for (int i = 0; i < this->_nbItems && i < 4; i++)
         {
             if (this->_inventory[i]->getType() == type)
             {
-                std::cout << "Materia " << type << " has been added at position #" << i - 1 << " in inventory." << std::endl;
+                std::cout << "Materia " << type << " has been added at position #" << i << " in inventory." << std::endl;
                 return this->_inventory[i]->clone();
             }
         }

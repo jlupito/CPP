@@ -6,21 +6,24 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:36:14 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/14 12:08:03 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:49:56 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
+# define _GREY 	"\033[90m"
+# define _END "\1\033[0m\2"
+
 	Character::Character( std::string name ) : _name( name ), _nbItems ( 0 ) {
-		std::cout << "Default Character constructor is created." << std::endl;
+		std::cout << _GREY "Default Character constructor is called." _END << std::endl;
 		for (int i = 0; i < 4; i++) {
 			this->_inventory[i] = NULL;
 		}
 	}
 	
 	Character::Character( Character const &copy ) {
-		std::cout << "Copy Character destructor is created." << std::endl;
+		std::cout << _GREY "Copy Character destructor is called." _END << std::endl;
 		for (int i = 0; i < 4; i++) {
 			if (this->_inventory[i])
 				this->_inventory[i] = (copy._inventory[i])->clone();
@@ -28,7 +31,7 @@
 	}
 	
 	Character::~Character( void ) {
-		std::cout << "Default Character destructor is created." << std::endl;
+		std::cout << _GREY "Default Character destructor is called." _END << std::endl;
 		for (int i = 0; i < 4; i++) {
 			if (this->_inventory[i])
 				delete this->_inventory[i];
@@ -36,7 +39,7 @@
 	}
 	
 	Character &Character::operator=( const Character &rhs) {
-		std::cout << "Character assignment operator is called." << std::endl;
+		std::cout << _GREY "Character assignment operator is called." _END << std::endl;
 		if (this != &rhs) {
 			this->_name = rhs.getName();
 			for (int i = 0; i < 4; i++) {
@@ -70,7 +73,8 @@
 			std::cout << "Inventory is full, drop one item first." << std::endl;
 			return ;
 		}
-		std::cout << "Item " << this->getName() << " is now placed at index " << i - 1 << " in inventory." << std::endl;
+		std::cout << this->getName() << " has placed the item " << m->getType()
+				<< " at position #" << i << std::endl;
 		this->_nbItems++;
 	}				
 
@@ -83,14 +87,15 @@
 			std::cout << "No item found at this place in inventory." << std::endl;
 			return ;
 		}
+		std::cout << this->getName() << " has dropped the item " << this->_inventory[idx]->getType()
+				<< " which was at position #" << idx << std::endl;
 		delete this->_inventory[idx];
 		this->_inventory[idx] = NULL;
 		this->_nbItems--;
-		std::cout << "Item " << this->getName() << " has been dropped and place #" << idx << " is now free in inventory." << std::endl;
 	}
 
 	void Character::use(int idx, ICharacter& target) {
-		if (idx < 0 || idx > 3 || !(this->_inventory[idx])) {
+		if (idx < 0 || idx > 3 || (this->_inventory[idx]) == NULL) {
 			std::cout << "Cannot use any materia." << std::endl;
 			return ;
 		}

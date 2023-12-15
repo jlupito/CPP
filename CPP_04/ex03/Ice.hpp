@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:40:51 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/13 19:31:37 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/15 11:31:01 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
+// #include "IMateriaSource.hpp"
+
+// class ICharacter;
+// class AMateria;
 
 class Ice : public AMateria {
 
@@ -26,7 +29,7 @@ class Ice : public AMateria {
 		Ice &operator=( const Ice &rhs); // operateur d affectation
 
 		virtual AMateria*	clone( void ) const;
-		virtual void 		use(ICharacter& target);
+		void 		use(ICharacter& target);
 		
 };
 

@@ -3,30 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:41:10 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/13 19:30:10 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/15 16:28:17 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
+# define _GREY 	"\033[90m"
+# define _END "\1\033[0m\2"
+
 Cure::Cure( void ) : AMateria() {
-	std::cout << "Default Cure constructor is created." << std::endl;
+	std::cout << _GREY "Default Cure constructor is called." _END << std::endl;
+	this->_type = "cure";
 }
 
 Cure::Cure( Cure const &copy ) : AMateria() {
-	std::cout << "Copy Cure constructor is created." << std::endl;
+	std::cout << _GREY "Copy Cure constructor is called." _END << std::endl;
 	*this = copy;
 }
 
 Cure::~Cure( void ) {
-	std::cout << "Default Cure destructor is created." << std::endl;
+	std::cout << _GREY "Default Cure destructor is called." _END << std::endl;
 }
 
 Cure &Cure::operator=( const Cure &rhs) {
-		std::cout << "Cure assignment operator is called." << std::endl;
+		std::cout << _GREY "Cure assignment operator is called." _END << std::endl;
 	if (this != &rhs) {
 		this->_type = rhs.getType();
 	}
