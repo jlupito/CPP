@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/12 11:40:15 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/18 11:26:52 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int main()
 	if (&k != &i && i->getType() == k->getType())
 		std::cout << "SUCCESS : same value but not the same addresses" << std::endl;
 	
-	std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
-	std::cout << "Test 4 : leak check post copy constructor" << std::endl;
+	// std::cout << "\n<-_-^-_-^-_-^-_-^-_-^-_-^-_-^->\n" << std::endl;
+	// std::cout << "Test 4 : leak check post copy constructor" << std::endl;
 	// AAnimal p(*i);
 	// std::cout << "p->type = " << p.getType() << std::endl;
 	// std::cout << "i->type = " << i->getType() << std::endl;

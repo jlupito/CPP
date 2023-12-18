@@ -6,14 +6,14 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:13:38 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/11 16:39:30 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/18 11:30:41 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
 int main()
@@ -95,7 +95,7 @@ int main()
 	std::cout << "Address of goodDoggy brain = " << goodDoggy.getBrain() << std::endl;
 	std::cout << "BEFORE COPY" << std::endl;
 	std::cout << "badDoggy first idea = " << badDoggy.getBrain()->ideas[0] << std::endl;
-	std::cout << "goodDoggy first idea = " <<  goodDoggy.getBrain()->ideas[0] << std::endl;
+	std::cout << "goodDoggy first idea = " << goodDoggy.getBrain()->ideas[0] << std::endl;
 	std::cout << "AFTER COPY" << std::endl;
 	goodDoggy = badDoggy;
 	std::cout << "Address of badDoggy = " << &badDoggy << std::endl;
@@ -111,7 +111,5 @@ int main()
 	if (goodDoggy.getBrain()->ideas[0] != badDoggy.getBrain()->ideas[0])
 		std::cout << "FAILURE, THE CONTENT ISNT COPIED" << std::endl;
 	
-
-
 	return 0;
 }
