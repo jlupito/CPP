@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:42:57 by jlupito           #+#    #+#             */
-/*   Updated: 2023/12/15 16:25:59 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:38:14 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@
 			i++;
 		}
 		if (i >= 4 || this->_nbItems == 4) {
-			std::cout << "Inventory is full, drop one materia first." << std::endl;
+			std::cout << "Memory book is full, forget one first." << std::endl;
 			return ;
 		}
 		else {
 			_inventory[i] = m;
-			std::cout << "Materia " << m->getType() << " has been learnt at position #" << i << " in inventory." << std::endl;
+			std::cout << "Materia " << m->getType() << " has been learnt in memory book." << std::endl;
 			this->_nbItems++;
 		}
 	}
@@ -85,7 +85,7 @@
         {
             if (this->_inventory[i]->getType() == type)
             {
-                std::cout << "Materia " << type << " has been added at position #" << i << " in inventory." << std::endl;
+                std::cout << "Materia " << type << " has been created from memory book." << std::endl;
                 return this->_inventory[i]->clone();
             }
         }
