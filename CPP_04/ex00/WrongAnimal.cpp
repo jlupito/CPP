@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:39 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/08 15:49:31 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:53:53 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal( void ) {
+WrongAnimal::WrongAnimal( void ) : _type( "Wrong Animal" ) {
 	std::cout << "Default WrongAnimal constructor is created." << std::endl;
 }
 
@@ -20,7 +20,7 @@ WrongAnimal::WrongAnimal( std::string type ) : _type( type ) {
 	std::cout << "Default WrongAnimal constructor is created." << std::endl;
 }
 
-WrongAnimal::WrongAnimal( WrongAnimal const &copy ) {
+WrongAnimal::WrongAnimal( WrongAnimal const &copy ) : _type( copy.getType() ) {
 	std::cout << "Copy WrongAnimal constructor is created." << std::endl;
 	*this = copy;
 }

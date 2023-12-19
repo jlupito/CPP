@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:39 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/08 15:41:35 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:31:57 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog( void ) : Animal("Dog") {
 	std::cout << "Default Dog constructor is created." << std::endl;
 }
 
-Dog::Dog( Dog const &copy ) {
+Dog::Dog( Dog const &copy ) : Animal(copy.getType())  {
 	std::cout << "Copy Dog constructor is created." << std::endl;
 	*this = copy;
 }

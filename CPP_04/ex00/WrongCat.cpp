@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:56:39 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/08 15:48:27 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:53:49 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
 	std::cout << "Default WrongCat constructor is created." << std::endl;
 }
 
-WrongCat::WrongCat( WrongCat const &copy ) {
+WrongCat::WrongCat( WrongCat const &copy ) : WrongAnimal( copy.getType() ) {
 	std::cout << "Copy WrongCat constructor is created." << std::endl;
 	*this = copy;
 }
