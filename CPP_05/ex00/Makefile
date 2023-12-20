@@ -5,9 +5,9 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 DEPS = ${OBJS:.o=.d}
 
-INC = bureaucrat.hpp \
+INC = Bureaucrat.hpp \
   
-SRCS = main.cpp bureaucrat.cpp \
+SRCS = main.cpp Bureaucrat.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)

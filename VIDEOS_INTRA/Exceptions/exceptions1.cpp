@@ -6,11 +6,18 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 17:08:51 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/15 17:19:49 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:50:22 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdexcept>
+
+// A l interieur du bloc TRY, lorsqu on arrive sur une instruction THROW:
+// -> on saute toutes les instructions suivantes.
+// -> on appelle le destructeur de tous les objets déclarés a l interieur du bloc.
+// -> on cherche le bloc CATCH correspondant a l objet trouvé.
+// -> on execute ce qui est ds le bloc CATCH, puis reprend l exec apres CATCH.
+// !!!! l'exec reprend apres le bloc CATCH pas apres le bloc THROW.
 
 void	test1() {
 	try {

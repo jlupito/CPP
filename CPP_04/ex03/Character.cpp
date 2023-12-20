@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:36:14 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/15 16:49:56 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:46:38 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@
 			while (i < 4 && this->_inventory[i])
 				i++;
 			this->_inventory[i] = m->clone();
+			// if (this->_inventory[i]) {
+			// 	delete m;
+			// }
 		}
 		else {
 			std::cout << "Inventory is full, drop one item first." << std::endl;
