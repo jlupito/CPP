@@ -6,7 +6,7 @@
 /*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:44:57 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/29 08:48:17 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/28 19:25:11 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name( name ) {
     }
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const &rhs ) : _grade( rhs.getGrade() ), _name( rhs.getName() ) {
+Bureaucrat::Bureaucrat( Bureaucrat const &rhs ) : _name( rhs.getName() ), _grade( rhs.getGrade() ) {
     std::cout << _GREY "Copy Constructor is called." _END << std::endl;
 	*this = rhs;
 	return;

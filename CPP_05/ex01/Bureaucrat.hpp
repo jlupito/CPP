@@ -6,7 +6,7 @@
 /*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:45:07 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/29 08:46:30 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/28 20:54:12 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include <string>
 #include <iostream>
-#include <stdexcept>
-#include <typeinfo>
 
 class Bureaucrat {
 	private:
@@ -25,7 +23,7 @@ class Bureaucrat {
 		
 	public:
 		Bureaucrat( void );  // constructeur par defaut
-		Bureaucrat( std::string name, unsigned int grade ); // constructeur par defaut
+		Bureaucrat( std::string name, int grade ); // constructeur par defaut
 		Bureaucrat( Bureaucrat const &rhs ); // constructeur de recopie
 		~Bureaucrat( void ); //destructeur
 		Bureaucrat &operator=( const Bureaucrat &rhs); // operateur d affectation
