@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:44:57 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/29 12:05:56 by jarthaud         ###   ########.fr       */
+/*   Updated: 2023/12/29 14:07:19 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	Bureaucrat::decrementGrade() {
 }
 
 std::ostream &operator<<( std::ostream &out, Bureaucrat const &rhs ) {
-		
-		out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
-		return out;
-	}
+    out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+    return out;
+}

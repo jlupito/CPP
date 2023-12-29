@@ -3,18 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:45:07 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/28 20:54:12 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/29 12:38:02 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+#include "Form.hpp"
 #include <string>
 #include <iostream>
+#include <stdexcept>
+#include <typeinfo>
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -23,7 +28,7 @@ class Bureaucrat {
 		
 	public:
 		Bureaucrat( void );  // constructeur par defaut
-		Bureaucrat( std::string name, int grade ); // constructeur par defaut
+		Bureaucrat( std::string name, unsigned int grade ); // constructeur par defaut
 		Bureaucrat( Bureaucrat const &rhs ); // constructeur de recopie
 		~Bureaucrat( void ); //destructeur
 		Bureaucrat &operator=( const Bureaucrat &rhs); // operateur d affectation
@@ -31,7 +36,8 @@ class Bureaucrat {
 		std::string const 	getName() const;
 		int					getGrade() const;
 		void				incrementGrade();
-		void				decrementGrade();	
+		void				decrementGrade();
+		void				signForm(Form & form);
 
 		class GradeTooHighException : public std::exception {
 		public:
