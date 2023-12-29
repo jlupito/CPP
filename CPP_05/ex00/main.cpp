@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:45:12 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/28 16:39:12 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/29 12:07:00 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
 	try {
-		Bureaucrat a("Bureaucrate aux dents longues", 15);
+		Bureaucrat a("Show-off bureaucrat", 15);
 		for (int i = 0; i < 15; i++)
 		{
 			try
@@ -35,7 +35,7 @@ int main()
 	}
 	try
 	{
-		Bureaucrat b("Bureaucrate ", 1545);
+		Bureaucrat b("Not-so-good bureaucrat", 1450);
 		Bureaucrat c(b);
 	} 
 	catch (std::exception& e)

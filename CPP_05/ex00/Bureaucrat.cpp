@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:44:57 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/29 08:48:17 by jlupito          ###   ########.fr       */
+/*   Updated: 2023/12/29 12:05:56 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ Bureaucrat::Bureaucrat( void ) {
 }
 
 Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name( name ) {
-    if (this->_grade < 1)
+    if (grade < 1)
         throw GradeTooHighException();
-    else if (this->_grade > 150)
+    else if (grade > 150)
         throw GradeTooLowException();
     else {
-        std::cout << _GREY "Default constructor with parameters is called." _END << std::endl;
         this->_grade = grade;   
+        std::cout << _GREY "Default constructor with parameters is called." _END << std::endl;
     }
 }
 
@@ -60,7 +60,7 @@ void    Bureaucrat::incrementGrade() {
     if (this->_grade < 2)
         throw GradeTooHighException();
     else {
-        std::cout << _GREY "Default constructor with parameters is called." _END << std::endl;
+        std::cout << _GREY "Incrementing bucreaucrat: " << this->getName() << _END << std::endl;
         this->_grade--;   
     }
 }
@@ -69,7 +69,13 @@ void	Bureaucrat::decrementGrade() {
     if (this->_grade > 149)
         throw GradeTooLowException();
     else {
-        std::cout << _GREY "Default constructor with parameters is called." _END << std::endl;
+        std::cout << _GREY "Decrementing bucreaucrat: " << this->getName() << _END << std::endl;
         this->_grade++;   
     }
 }
+
+std::ostream &operator<<( std::ostream &out, Bureaucrat const &rhs ) {
+		
+		out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+		return out;
+	}
