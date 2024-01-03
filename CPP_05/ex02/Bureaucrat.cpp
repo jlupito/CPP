@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:44:57 by jarthaud          #+#    #+#             */
-/*   Updated: 2023/12/29 14:43:30 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:53:06 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name( name ) {
         throw GradeTooLowException();
     else {
         this->_grade = grade;   
-        std::cout << _GREY "Default Bureaucrat constructor with parameters is called." _END << std::endl;
+        std::cout << _GREY "Default Bureaucrat constructor w/ parameters is called." _END << std::endl;
     }
 }
 
@@ -73,14 +73,26 @@ void	Bureaucrat::decrementGrade() {
     }
 }
 
-void    Bureaucrat::signForm (Form & form) {
+void    Bureaucrat::signForm (AForm & form) {
     try {
 		form.beSigned(*this);
 		std::cout << this->_name << " signed " << form.getName() << std::endl;
 	}
 	catch (std::exception &e ){
-		std::cout << this->_name << " couldn't sign " << form.getName()
+		std::cout << this->_name << " could not sign " << form.getName()
 			<< " because " << e.what() << std::endl;
+	}
+}
+
+void    Bureaucrat::executeForm(AForm const & form) {
+    try 
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " could not execute " << form.getName() << " due to " << e.what() << std::endl;
 	}
 }
 

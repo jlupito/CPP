@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 21:04:59 by jlupito           #+#    #+#             */
-/*   Updated: 2023/12/29 15:16:30 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:52:46 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ AForm::AForm( std::string name, int const gradeToSign, int const gradeToExec )
 		_signed(false),
 		_gradeToSign(gradeToSign),
 		_gradeToExec(gradeToExec) {
-	std::cout << _GREY "Default AForm constructor with parameters is called." _END << std::endl;
+	std::cout << _GREY "Default AForm constructor w/ parameters is called." _END << std::endl;
 	if (gradeToSign < 1 || gradeToExec < 1)
         throw GradeTooHighException();
     else if (gradeToSign > 150 || gradeToExec > 150)

@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 21:05:04 by jlupito           #+#    #+#             */
-/*   Updated: 2023/12/29 15:19:23 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:46:51 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ class AForm {
 		virtual ~AForm( void ); //destructeur
 		AForm &operator=( const AForm &rhs); // operateur d affectation
 
-        std::string getName() const;
-        bool        getSigned() const;
-        int         getGradeToSign() const;
-        int         getGradeToExec() const;
-        void        beSigned( Bureaucrat );
+        std::string 		getName() const;
+        bool        		getSigned() const;
+        int         		getGradeToSign() const;
+        int         		getGradeToExec() const;
+        void        		beSigned( Bureaucrat );
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 
         class GradeTooHighException : public std::exception {
 		public:
