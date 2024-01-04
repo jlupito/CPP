@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:45:12 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/03 15:39:55 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:06:10 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main()
 {
-	Bureaucrat	jim("Jim", 150);
+	Bureaucrat	jim("Jim", 1);
 	Intern		rookie;
 	AForm		*form = NULL;
 	std::string	nameForm[4] = {

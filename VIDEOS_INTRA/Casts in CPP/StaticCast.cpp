@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:43:31 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/03 16:59:19 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:04:36 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Il y a 5 actions de casts possibles:
 un premier cast CPP, le plus usuel : le STATIC CAST
 permet de faire des conversisons les plus simples possibles
 mais aussi de naviguer dans l arbre de conversion.
-Il empeche de faire des converssions entre des classes non liées
+Il empeche de faire des conversions entre des classes non liées
 */
 
 /**********************CAS GENERAL****************************/
