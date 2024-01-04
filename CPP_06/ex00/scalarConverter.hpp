@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/04 12:29:06 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:53:41 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 class ScalarConverter {
 	public:
-		static void convert( std::string str );
+		static void convert( std::string& str );
 	private:
 		ScalarConverter( void );  // constructeur par defaut
 		ScalarConverter( ScalarConverter const &rhs ); // constructeur de recopie
@@ -22,4 +22,4 @@ class ScalarConverter {
 		ScalarConverter &operator=( const ScalarConverter &rhs); // operateur d affectation
 		
 		
-}
+};
