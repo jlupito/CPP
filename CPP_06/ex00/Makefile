@@ -5,9 +5,9 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 DEPS = ${OBJS:.o=.d}
 
-INC =  scalarConverter.hpp \
+INC =  ScalarConverter.hpp \
   
-SRCS = main.cpp scalarConverter.cpp \
+SRCS = main.cpp ScalarConverter.cpp \
         
 OBJS_PATH = ./objs
 OBJS_NAMES = $(SRCS:.cpp=.o)
