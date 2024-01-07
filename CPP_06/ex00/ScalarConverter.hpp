@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   scalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/05 17:39:03 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:00:50 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ class ScalarConverter {
         static bool isInt( std::string str );
         static bool isFloat( std::string str );
         static bool isDouble( std::string str );
-        static void convertChar( char _char );
-        static void convertInt( int _int );
-        static void convertFloat( float _float, std::string str );
-        static void convertDouble( double _double, std::string str );
-        static void printInt( int _int );
-        static void printFloat( float _float );
-        static void printDouble( double _double );
-        static void printChar( char _char );
+        static void convertChar( char c );
+        static void convertInt( int i );
+        static void convertFloat( float f, std::string str );
+        static void convertDouble( double d, std::string str );
+        static void printInt( int i );
+        static void printFloat( float f );
+        static void printDouble( double d );
+        static void printChar( char c );
 		
 	private:
 		ScalarConverter( void );  // constructeur par defaut

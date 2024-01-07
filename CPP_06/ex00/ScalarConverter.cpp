@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:34 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/05 18:39:51 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/07 20:31:46 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool ScalarConverter::isChar(std::string str) {
 
 bool ScalarConverter::isInt(std::string str) {
 	size_t	i = 0;
-	if (str[i] == '+' and str[i] == '-')
+	if (str[i] == '+' or str[i] == '-')
 		i++;
 	while (isdigit(str[i]))
 		i++;
