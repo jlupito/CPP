@@ -6,16 +6,19 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:30:57 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/04 10:38:45 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:41:04 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-Le REINTERPRET CAT permet de realier de:
+Le REINTERPRET CAST permet de realier de:
 - reinterpretations
 - downcasts
 - upcasts
-Cest le cast le plus permissif du CPP, donc attention aux consequences
+Cest le cast le plus permissif du CPP, donc attention aux consequences.
+Le reinterpret_cast en C++ est un opérateur de conversion de type 
+qui est utilisé pour convertir un pointeur d'un type vers un autre, 
+ou pour convertir un entier non signé vers un pointeur et vice versa
 */
 
 int main(void) {

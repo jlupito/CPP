@@ -1,15 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalarConverter.hpp                                :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:32 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/06 16:00:50 by jlupito          ###   ########.fr       */
+/*   Updated: 2024/01/08 10:12:18 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCALAR_CONVERTER_HPP
+#define SCALAR_CONVERTER_HPP
 #include <string>
 #include <iostream>
 #include <stdlib.h>
@@ -38,3 +40,5 @@ class ScalarConverter {
 		~ScalarConverter( void ); //destructeur
 		ScalarConverter &operator=( const ScalarConverter &rhs); // operateur d affectation
 };
+
+#endif
