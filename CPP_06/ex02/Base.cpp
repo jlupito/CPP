@@ -6,14 +6,13 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:23:06 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/08 14:42:08 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/09 17:48:52 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
 Base * generate(void) {
-	std::srand(std::time(0));
 	int randomVal = std::rand() % 3;
 	switch(randomVal) {
 	case 0:
