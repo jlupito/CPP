@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:23:06 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/09 17:48:52 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:33:48 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ Base * generate(void) {
 		std::cout << "Class B is instanciated." << std::endl;
 		return new B;
 	case 2:
-		std::cout << "Class B is instanciated." << std::endl;
-		return new B;
+		std::cout << "Class C is instanciated." << std::endl;
+		return new C;
 	}
 	return NULL;
 }

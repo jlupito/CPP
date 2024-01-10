@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:27 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/09 14:56:53 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:55:15 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ int main(void) {
 	Array<int> int_array(10);
     Array<std::string> string_array(10);
 
-	for (int i = 0; i < 10; i++)
-    {
+	for (int i = 0; i < 10; i++) {
         int_array[i] = i;
         string_array[i] = "Hello world";
     }
-    for (int i = 0; i < 10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         std::cout << int_array[i] << std::endl;
         std::cout << string_array[i] << std::endl;
     }
@@ -37,32 +35,24 @@ int main(void) {
 
 	std::cout << std::endl;
     Array<int> int_array_copy(int_array);
-    for (int i = 0; i < 10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         int_array[i] = 0;
     }
-    for (int i = 0; i < 10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         std::cout << int_array_copy[i];
     }
 	std::cout << std::endl;
 
 	std::cout << "\ntest out of index\n" << std::endl;
-
-	std::cout << std::endl;
-    try
-    {
+    try {
         int_array[10] = 0;
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e) {
         std::cerr << "[error] " << e.what() << '\n';
     }
 
 	std::cout << "\ntest string\n" << std::endl;
-
-	try
-	{
+	try	{
 		Array<std::string> integer(42);
 		integer[39] = "Bob";
 		std::cout << "size of " << integer.size() << std::endl;
@@ -74,8 +64,7 @@ int main(void) {
 		std::cout << "value of " << integer2[0] << std::endl;
 		std::cout << integer[45] << std::endl;
 	}
-	catch(const std::exception& e)
-	{
+	catch(const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}
     return 0;
