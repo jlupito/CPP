@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:18:41 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/11 17:51:23 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:10:55 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ private:
 	std::vector<int> 	_span;
 	size_t 				_size;  
 public:
-	Span( void );  // constructeur par defaut
 	Span( size_t N );  // constructeur par defaut param
-	Span( Span const &copy ); // constructeur de recopie
+	Span( Span const &rhs ); // constructeur de recopie
 	~Span( void ); //destructeur
 	Span &operator=( const Span &rhs); // operateur d affectation
 
-	void addNumber( void );
+	void addNumber( int nb );
 	size_t shortestSpan() const;
 	size_t longestSpan() const;
 	
@@ -37,6 +36,13 @@ public:
 	public:
 		virtual const char* what() const throw() {
 			return ("There is no distance if there is no road my child!");
+		}
+	};
+	
+	class FullException : public std::exception {
+	public:
+		virtual const char* what() const throw() {
+			return ("There tab is Full!");
 		}
 	};
 };
