@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:27 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/10 17:55:15 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:48:51 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ int main(void) {
 	std::cout << *a << std::endl;
 	delete a;
 	
+    std::cout << "\ntest int/string arrays" << std::endl;
+    std::cout << "-----------------------" << std::endl;
+	Array<int> int_array(10);
     Array<int> int_array2(0);
     Array<int> int_array3;
-	Array<int> int_array(10);
     Array<std::string> string_array(10);
 
 	for (int i = 0; i < 10; i++) {
@@ -39,19 +41,19 @@ int main(void) {
         int_array[i] = 0;
     }
     for (int i = 0; i < 10; i++) {
-        std::cout << int_array_copy[i];
+        std::cout << int_array_copy[i] << std::endl;
     }
-	std::cout << std::endl;
-
-	std::cout << "\ntest out of index\n" << std::endl;
+	std::cout << "\ntest exception" << std::endl;
+    std::cout << "--------------" << std::endl;
     try {
         int_array[10] = 0;
     }
     catch(const std::exception& e) {
-        std::cerr << "[error] " << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
 
-	std::cout << "\ntest string\n" << std::endl;
+	std::cout << "\ntest string" << std::endl;
+    std::cout << "------------" << std::endl;
 	try	{
 		Array<std::string> integer(42);
 		integer[39] = "Bob";

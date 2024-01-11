@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:18:41 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/10 17:15:56 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:28:01 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <list>
 
 class NotFoundException : public std::exception {
 public:
