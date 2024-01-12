@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:18:41 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/12 15:48:02 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:39:16 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stack>
 #include <deque>
 #include <iterator>
+#include <list>
 
 template< typename T>
 class MutantStack : public std::stack<T> {
