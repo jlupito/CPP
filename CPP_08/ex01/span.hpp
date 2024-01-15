@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:18:41 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/12 16:10:50 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:05:41 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,22 @@ public:
 
 	void addNumber( int nb );
 	void addNumber( std::vector<int> tabAdd );
-	size_t shortestSpan() const;
-	size_t longestSpan() const;
+	size_t shortestSpan();
+	size_t longestSpan();
+
+	int	getVal( int index);
 	
 	class NoDistanceException : public std::exception {
 	public:
 		virtual const char* what() const throw() {
-			return ("There is no distance if there is no road my child!");
+			return ("It takes at least two to span!");
 		}
 	};
 	
 	class FullException : public std::exception {
 	public:
 		virtual const char* what() const throw() {
-			return ("There tab is Full!");
+			return ("There is not enough space for all the spanners!");
 		}
 	};
 };

@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:07:41 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/12 17:19:18 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:08:08 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ Span &Span::operator=( const Span &rhs) {
     return *this;
 }
 
+int Span::getVal( int index ) {
+    return this->_span[index];
+}
+
 void Span::addNumber( int nb ) {
     if (_span.size() == _size)
         throw FullException();
@@ -42,7 +46,7 @@ void Span::addNumber( std::vector<int> tabAdd ) {
 
 }
 
-size_t Span::shortestSpan( void ) const {
+size_t Span::shortestSpan( void ) {
     if (!_span.size() or _span.size() == 1)
         throw NoDistanceException();
     std::vector<int> copy = this->_span;
@@ -55,12 +59,12 @@ size_t Span::shortestSpan( void ) const {
     return ret;
 }
 
-size_t Span::longestSpan( void ) const {
+size_t Span::longestSpan( void ) {
     if (!_span.size() or _span.size() == 1)
         throw NoDistanceException();
-    int minElement = *std::min_element(_span.begin(), _span.end());
-    // std::cout << "min Val is: " << minElement << std::endl;
-    int maxElement = *std::max_element(_span.begin(), _span.end());
-    // std::cout << "max Val is: " << maxElement << std::endl;
-    return maxElement - minElement;
+    std::sort(_span.begin(), _span.end());
+    int ret = std::abs(_span[_span.size() - 1] - _span[0]);
+    std::cout << "[min Val is: " << _span[0] << "]" << std::endl;
+    std::cout << "[max Val is: " << _span[_span.size() - 1] << "]" << std::endl;
+    return ret;
 }

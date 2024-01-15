@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:27 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/12 18:00:11 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:30:36 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(void) {
     
 	std::cout << "-----test mutantstack------" << std::endl;
 	MutantStack<int> mstack;
-	mstack.push(5); // insert at the top
+	mstack.push(5); // insert at the top/last position
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl; // returns a reference to the top element
 	mstack.pop(); // removes top element and reduces size by 1
@@ -30,8 +30,7 @@ int main(void) {
 	MutantStack<int>::iterator ite = mstack.itEnd();
 	++it;
 	--it;
-	while (it != ite)
-	{
+	while (it != ite) {
 	std::cout << *it << std::endl;
 	++it;
 	}
@@ -39,10 +38,10 @@ int main(void) {
 
 	std::cout << "-----test list------" << std::endl;
 	std::list<int> mlist;
-	mlist.push_back(5);
+	mlist.push_back(5); // insert at the top/last position
 	mlist.push_back(17);
-	std::cout << mlist.back() << std::endl;
-	mlist.pop_back();
+	std::cout << mlist.back() << std::endl; // front is first, back is last
+	mlist.pop_back(); // pop_front removes first, pop_back removes last
 	std::cout << mlist.size() << std::endl;
 	mlist.push_back(3);
 	mlist.push_back(5);
@@ -53,14 +52,11 @@ int main(void) {
 	std::list<int>::iterator ite2 = mlist.end();
 	++it2;
 	--it2;
-	while (it2 != ite2)
-	{
+	while (it2 != ite2) {
 	std::cout << *it2 << std::endl;
 	++it2;
 	}
 	std::list<int> s2(mlist);
 	return 0;
-
-
 	
 }
