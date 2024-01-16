@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:37 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/16 16:32:32 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:58:01 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	BitcoinExchange::checkExchange(char *str) {
 	while(std::getline(ifs, line)) {
 		size_t posComa = line.find('|');
 		try {
-			_checkDate(line.substr(0, posComa));
-			_checkRate(line.substr(posComa + 1));
+			_checkDate(line.substr(0, posComa - 1));
+			_checkRate(line.substr(posComa + 2));
 			_printOutput((line.substr(0, posComa - 1)), (line.substr(posComa + 1)));	
 		}
 		catch (BitcoinExchange::DateException& e) { 
@@ -62,6 +62,8 @@ void	BitcoinExchange::checkExchange(char *str) {
 
 void	BitcoinExchange::_checkDate(const std::string& date) {
 	int year, month, day;
+	if (date.size() != 10)
+		throw DateException(date);
 	if (std::sscanf(date.c_str(), "%d-%d-%d", &year, &month, &day) != 3)
 		throw DateException(date);
 	if ((month <= 0 || month >= 13) || (day <= 0 || day >= 32) || (month == 2 && day > 29))
@@ -79,6 +81,9 @@ void	BitcoinExchange::_checkDate(const std::string& date) {
 void	BitcoinExchange::_checkRate(const std::string& rate) {
 	std::istringstream iss(rate);
     float value;
+	if (!_isInt(rate) and !_isFloat(rate)) {
+		throw RateException("bad input => " + rate);
+	}
     if (iss >> value) {
         if (value >= 0.0f && value <= 1000.0f) {
             return;
@@ -109,6 +114,37 @@ void	BitcoinExchange::_printOutput(const std::string& key, const std::string& va
 	std::cout << key << " =>" << value << " = " 
 				<< next->second * strtof(value.c_str(), NULL) << std::endl;
 	return;
+}
+
+bool BitcoinExchange::_isInt(const std::string& str) {
+	size_t	i = 0;
+	if (str[i] == '+' or str[i] == '-')
+		i++;
+	while (isdigit(str[i]))
+		i++;
+	if (i == str.length())
+		return true;
+	return false;
+}
+
+bool BitcoinExchange::_isFloat(const std::string& str) {
+	unsigned long i = 0;
+	if (str == "-inff" or str == "+inff" or str == "nanf")
+		return true;
+	if (str[i] == '+' or str[i] == '-')
+		i++;
+	while (isdigit(str[i]))
+		i++;
+	if (str[i] != '.')
+		return false;
+	else {
+		i++;
+		while (isdigit(str[i]))
+			i++;
+	}
+	if (str[i] == 'f' and i == str.length() - 1)
+		return true;
+	return false;
 }
 
 const char *BitcoinExchange::FileException::what() const throw() {

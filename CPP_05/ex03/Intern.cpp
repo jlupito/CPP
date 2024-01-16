@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:22:42 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/03 15:30:10 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:40:02 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ AForm*	Intern::makeForm(std::string name, std::string target) {
 		if (name == formType[i])
 			form = i;
 	}
-	switch (form)
-	{
+	switch (form) {
 		case 0:
 			return newForm = new ShrubberyCreationForm(target);
 		case 1:

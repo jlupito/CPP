@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:48 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/16 16:31:27 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:49:54 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <map>
 #include <cstdlib>
 #include <exception>
+#include <algorithm>
 
 class BitcoinExchange {
 	
@@ -27,6 +28,8 @@ private:
 	void _checkDate(const std::string& date);
 	void _checkRate(const std::string& rate);
 	void _printOutput(const std::string& key, const std::string& value);
+	bool _isInt(const std::string& str);
+	bool _isFloat(const std::string& str);
 
 public:
 	BitcoinExchange( void );
