@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:37 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/15 18:23:34 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:32:32 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 BitcoinExchange::BitcoinExchange() {
 	std::ifstream ifs("data.csv");
 	if (!ifs.is_open() or ifs.peek() == std::ifstream::traits_type::eof())
-		throw FileProblemException();
+		throw FileException();
 	std::string line;
 	while(std::getline(ifs, line)) {
 		size_t posComa = line.find(',');
@@ -34,10 +34,91 @@ BitcoinExchange::~BitcoinExchange( void ) {}
 BitcoinExchange &BitcoinExchange::operator=( const BitcoinExchange &rhs) {
 	(void)rhs;
 	if (this != &rhs)
-		_btc = rhs._btc;
+		this->_btc = rhs._btc;
 	return *this;
 }
 
-std::map<std::string,float> BitcoinExchange::getBtcExch() const {
-	return (_btc);
+void	BitcoinExchange::checkExchange(char *str) {
+	std::ifstream ifs(str);
+	if (!ifs.is_open() or ifs.peek() == std::ifstream::traits_type::eof())
+		throw FileException();
+	std::string line;
+	while(std::getline(ifs, line)) {
+		size_t posComa = line.find('|');
+		try {
+			_checkDate(line.substr(0, posComa));
+			_checkRate(line.substr(posComa + 1));
+			_printOutput((line.substr(0, posComa - 1)), (line.substr(posComa + 1)));	
+		}
+		catch (BitcoinExchange::DateException& e) { 
+			std::cout << e.what() << std::endl;
+		}
+		catch (BitcoinExchange::RateException& e) { 
+			std::cout << e.what() << std::endl;
+		}	
+	}
+	ifs.close();
+}
+
+void	BitcoinExchange::_checkDate(const std::string& date) {
+	int year, month, day;
+	if (std::sscanf(date.c_str(), "%d-%d-%d", &year, &month, &day) != 3)
+		throw DateException(date);
+	if ((month <= 0 || month >= 13) || (day <= 0 || day >= 32) || (month == 2 && day > 29))
+		throw DateException(date);
+	if ((month == 4 || month == 6 || month == 9 || month == 11) && (day <= 0 || day >= 31))
+		throw DateException(date);
+	if(month == 2) {
+        if(day == 29) {
+            if(year % 4 != 0 || (year % 100 == 0 && year % 400 != 0))
+			throw DateException(date);
+        }
+    }
+}
+
+void	BitcoinExchange::_checkRate(const std::string& rate) {
+	std::istringstream iss(rate);
+    float value;
+    if (iss >> value) {
+        if (value >= 0.0f && value <= 1000.0f) {
+            return;
+        }
+		else if (value > 1000.0f)
+			throw RateException("too large a number.");
+		else if (value < 0.0f)
+			throw RateException("not a positive number.");
+    }
+    throw RateException("bad input => " + rate);
+}
+
+std::map<std::string, float>::iterator BitcoinExchange::_findDate(const std::string& date) {
+	std::map<std::string, float>::iterator it = _btc.lower_bound(date);
+	return (--it);
+}
+
+void	BitcoinExchange::_printOutput(const std::string& key, const std::string& value) {
+	std::map<std::string, float>::iterator it;
+	for (it = _btc.begin(); it != _btc.end(); ++it) {
+		if (it->first == key) {
+			std::cout << key << " =>" << value << " = " 
+					  << (it->second * strtof(value.c_str(), NULL)) << std::endl;
+			return;
+		}
+	}
+	std::map<std::string, float>::iterator next = _findDate(key);
+	std::cout << key << " =>" << value << " = " 
+				<< next->second * strtof(value.c_str(), NULL) << std::endl;
+	return;
+}
+
+const char *BitcoinExchange::FileException::what() const throw() {
+	return ("Error: could not open file.");
+}
+
+const char *BitcoinExchange::DateException::what() const throw() {
+	return this->_errorMessage.c_str();
+}
+
+const char *BitcoinExchange::RateException::what() const throw() {
+	return this->_errorMessage.c_str();
 }

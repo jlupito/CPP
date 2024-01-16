@@ -6,33 +6,54 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:48 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/15 18:22:52 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:31:27 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <map>
 #include <cstdlib>
+#include <exception>
 
 class BitcoinExchange {
 	
 private:
 	std::map<std::string,float> _btc;
+	std::map<std::string, float>::iterator _findDate(const std::string& date);
+	void _checkDate(const std::string& date);
+	void _checkRate(const std::string& rate);
+	void _printOutput(const std::string& key, const std::string& value);
 
 public:
-	BitcoinExchange( void );  // constructeur par defaut param
-	BitcoinExchange( BitcoinExchange const &rhs ); // constructeur de recopie
-	~BitcoinExchange( void ); //destructeur
-	BitcoinExchange &operator=( const BitcoinExchange &rhs); // operateur d affectation
+	BitcoinExchange( void );
+	BitcoinExchange( BitcoinExchange const &rhs );
+	~BitcoinExchange( void );
+	BitcoinExchange &operator=( const BitcoinExchange &rhs);
 
-	std::map<std::string,float> getBtcExch() const;
+	void checkExchange(char *str);
 
-	class FileProblemException : public std::exception {
+	class FileException : public std::exception {
 	public:
-		virtual const char* what() const throw() {
-			return ("Could not open CSV file.");
-		}
+		virtual const char* what() const throw();
+	};
+
+	class DateException {
+	private:
+		std::string _errorMessage;
+	public:
+	    DateException(const std::string& message) : _errorMessage("Error: bad input => " + message) {}
+		virtual const char* what() const throw();
+	};
+
+	class RateException {
+	private:
+		std::string _errorMessage;
+	public:
+	    RateException(const std::string& message) : _errorMessage("Error: " + message) {}
+		virtual const char* what() const throw();
 	};
 };
