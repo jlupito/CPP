@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:00:41 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/17 18:41:36 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/17 20:00:10 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class RPN {
 
 private:
 	std::stack<int> _stackRPN;
-	bool _isOperand(const char& c);
-	void _compute(std::string& input);
+	bool _isOperator(const char& c);
+	void _process(std::string& input);
 	RPN( RPN const &rhs );
 	RPN &operator=( const RPN &rhs);
 

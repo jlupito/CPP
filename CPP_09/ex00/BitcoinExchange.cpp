@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:37 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/16 17:58:01 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:48:05 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	BitcoinExchange::checkExchange(char *str) {
 		throw FileException();
 	std::string line;
 	while(std::getline(ifs, line)) {
-		size_t posComa = line.find('|');
+		size_t posPipe = line.find('|');
 		try {
-			_checkDate(line.substr(0, posComa - 1));
-			_checkRate(line.substr(posComa + 2));
-			_printOutput((line.substr(0, posComa - 1)), (line.substr(posComa + 1)));	
+			_checkDate(line.substr(0, posPipe - 1));
+			_checkRate(line.substr(posPipe + 2));
+			_printOutput((line.substr(0, posPipe - 1)), (line.substr(posPipe + 1)));	
 		}
 		catch (BitcoinExchange::DateException& e) { 
 			std::cout << e.what() << std::endl;

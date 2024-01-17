@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:00:22 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/17 18:42:46 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/17 20:04:47 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ RPN &RPN::operator=( const RPN &rhs) {
 	return *this;
 }
 
-bool RPN::_isOperand(const char& c) {
+bool RPN::_isOperator(const char& c) {
 	if (c == '*' or c == '/' or c == '+' or c == '-')
 		return true;
 	return false;
 }
 
-void RPN::_compute(std::string& input) {
+void RPN::_process(std::string& input) {
 	int nbr, ret = 0;
 	for (size_t i = 0; i < input.size(); i++) {
 		if (isdigit(input[i]))
 			_stackRPN.push(atoi(std::string(1, input[i]).c_str()));
-		else if (_isOperand(input[i]) and _stackRPN.size() > 1) {
+		else if (_isOperator(input[i]) and _stackRPN.size() > 1) {
 			nbr = _stackRPN.top();
 			_stackRPN.pop();
 			if (input[i] == '*')
@@ -62,13 +62,13 @@ void RPN::_compute(std::string& input) {
 void RPN::runRPN(char* av) {
 	std::string input(av);
 	input.erase(std::remove(input.begin(), input.end(), ' '), input.end());
-	_compute(input);
+	_process(input);
 }
 
 const char *RPN::WrongInputException::what() const throw() {
-	return ("Error: input can not be computed using RPN.");
+	return ("Error: input can not be processed.");
 }
 
 const char *RPN::NoDivisionException::what() const throw() {
-	return ("Error: can not compute a division by 0.");
+	return ("Error: can not divide by 0.");
 }
