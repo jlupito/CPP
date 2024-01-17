@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:27 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/16 18:10:52 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:23:06 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int ac, char **av) {
 	}
 	try {
 		RPN rpn;
-		
+		rpn.runRPN(av[1]);
 	}
 	catch (std::exception& e) { 
 		std::cout << e.what() << std::endl;
