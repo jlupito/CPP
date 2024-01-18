@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:59 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/18 17:00:25 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:32:18 by jlupito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@
 class PmergeMe {
 
 private:
-	std::deque<int> _containerD;
+	std::deque<int> _deqToSort;
+	std::vector<int> _vecToSort;
 	std::vector<int> _unsortList;
+	bool _isInt(const std::string& str);
 	PmergeMe( PmergeMe const &rhs );
 	PmergeMe &operator=( const PmergeMe &rhs);
 	PmergeMe( void );
@@ -33,6 +35,7 @@ private:
 public:
 	~PmergeMe( void );
 	PmergeMe( char** av );
+	long long int getTime();
 
 	class WrongInputException : public std::exception {
 	public:
