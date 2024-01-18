@@ -5,7 +5,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 DEPS = ${OBJS:.o=.d}
 
-INC =  PmergeME.hpp \
+INC =  PmergeMe.hpp \
   
 SRCS = main.cpp PmergeMe.cpp \
         
