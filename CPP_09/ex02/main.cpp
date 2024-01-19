@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:27 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/18 17:07:22 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:54:35 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int ac, char **av) {
 	}
 	try {
 		PmergeMe pmm(av);
-		// pmm.runRPN(av[1]);
+		pmm.process();
 	}
 	catch (std::exception& e) { 
 		std::cout << e.what() << std::endl;
