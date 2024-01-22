@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:49 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/19 19:18:43 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:50:47 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,27 @@ void PmergeMe::process( void ) {
 	time = _getTime() - time;
 	time = _getTime();
 	// print la liste sorted "After:"
-	// print deque container 
+	// print deque container time
 	_sortFJ(_vecToSort);
 	time = _getTime() - time;
-	// print vector container
+	// print vector container time
 
 }
 
 template< typename T >
 void PmergeMe::_sortFJ( T& toSort ) {
+	T pair;
 	T main;
 	T pend;
-	if (toSort.size() % 2)
+	if (toSort.size() % 2) {
 		int unPaired = toSort.back();
-	for (i = 0; i < toSort.size(); i += 2) {
-		if (toSort[i])
+		toSort.pop();
+	}
+	for (i = 0; i < toSort.size() - 1; i += 2) {
+		pair.push_back(toSort[i]);
+		pair.push_back(toSort[i + 1]);
+		if (pair[i] > pair[i + 1])
+			swap(pair[i], pair[i + 1]);
 	}
 	
 	
