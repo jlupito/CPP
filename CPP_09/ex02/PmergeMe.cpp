@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:49 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/22 17:50:47 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:32:26 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,34 +51,70 @@ PmergeMe::PmergeMe( char** av ) {
 
 void PmergeMe::process( void ) {
 	unsigned long long time = _getTime();
-	_sortFJ(_deqToSort);
-	time = _getTime() - time;
-	time = _getTime();
-	// print la liste sorted "After:"
-	// print deque container time
 	_sortFJ(_vecToSort);
 	time = _getTime() - time;
-	// print vector container time
-
+	time = _getTime();
+	std::cout << "After: ";
+	for (std::vector<int>::const_iterator it = _vecToSort.begin(); it != _vecToSort.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+	std::cout << "Time to process a range of " << _vecToSort.size()
+		<< " elements with std::vector<int> : " << time << " us" << std::endl;
+	time = _getTime();
+	_sortFJ(_deqToSort);
+	std::cout << "After: ";
+	for (std::deque<int>::const_iterator it = _deqToSort.begin(); it != _deqToSort.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+	time = _getTime() - time;
+	time = _getTime();
+	std::cout << "Time to process a range of " << _deqToSort.size()
+		<< " elements with std::deque<int> : " << time << " us" << std::endl;
 }
 
 template< typename T >
 void PmergeMe::_sortFJ( T& toSort ) {
-	T pair;
 	T main;
 	T pend;
+	int unPaired;
+	bool odd;
 	if (toSort.size() % 2) {
-		int unPaired = toSort.back();
-		toSort.pop();
+		unPaired = toSort.back();
+		odd = true;
+		toSort.pop_back();
+		// toSort.pop();
 	}
-	for (i = 0; i < toSort.size() - 1; i += 2) {
-		pair.push_back(toSort[i]);
-		pair.push_back(toSort[i + 1]);
-		if (pair[i] > pair[i + 1])
-			swap(pair[i], pair[i + 1]);
+	if (toSort.size() > 2) {
+		for (size_t i = 0; i < toSort.size() - 1; i += 2) {
+			if (toSort[i] > toSort[i + 1])
+				std::swap(toSort[i], toSort[i + 1]);
+			main.push_back(toSort[i]);
+			pend.push_back(toSort[i + 1]);
+		}
+		_sortFJ(main);
+		size_t sizeMax = toSort.size();
+		if (odd == true)
+			sizeMax--;
+		for (size_t index = 0; index < sizeMax; index++) {
+			size_t j = 0;
+			size_t uncleJack;
+			while (index > _jacobsthal(j))
+				j++;
+			if (j != 0)
+			{
+				if (sizeMax - 1 <= _jacobsthal(j))
+					uncleJack = sizeMax - (index - _jacobsthal(j - 1));
+				else
+					uncleJack = _jacobsthal(j) + 1 - (index - _jacobsthal(j - 1)); 
+			}
+			else
+				uncleJack = 0;
+			_binarySearchInsert(main, pend[uncleJack]);
+		}
+		if (odd == true)
+			_binarySearchInsert(main, unPaired);
+		toSort = main;
 	}
-	
-	
 }
 
 PmergeMe::PmergeMe() {}
@@ -94,6 +130,35 @@ PmergeMe &PmergeMe::operator=( const PmergeMe &rhs ) {
 	return (*this);
 }
 
+unsigned int PmergeMe::_jacobsthal(unsigned int n) {
+    if (n == 0) {
+        return 0;
+    } else if (n == 1) {
+        return 1;
+    } else {
+        return _jacobsthal(n - 1) + 2 * _jacobsthal(n - 2);
+    }
+}
+
+template< typename T >
+void PmergeMe::_binarySearchInsert(T& container, int value) {
+	int low = 0;
+    int high = container.size() - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (container[mid] == value) {
+            return;
+        } 
+		else if (container[mid] < value) {
+            low = mid + 1;
+        } 
+		else {
+            high = mid - 1;
+        }
+    }
+    container.insert(container.begin() + low, value);// Insére la valeur à l'index "low"
+}
+
 const char *PmergeMe::WrongInputException::what() const throw() {
 	return ("Error: input is not a positive integer sequence.");
 }
@@ -101,13 +166,3 @@ const char *PmergeMe::WrongInputException::what() const throw() {
 const char *PmergeMe::DuplicatesException::what() const throw() {
 	return ("Error: a duplicate was found in the sequence.");
 }
-
-// unsigned int jacobsthal(unsigned int n) {
-//     if (n == 0) {
-//         return 0;
-//     } else if (n == 1) {
-//         return 1;
-//     } else {
-//         return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
-//     }
-// }

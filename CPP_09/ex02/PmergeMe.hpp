@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:59 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/19 19:01:23 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:21:34 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ private:
 	template< typename T >
 	void _sortFJ(T& toSort);
 	long long int _getTime();
+	unsigned int _jacobsthal(unsigned int n);
+	template< typename T >
+	void _binarySearchInsert(T& container, int value);
 
 public:
 	~PmergeMe( void );
 	PmergeMe( char** av );
-	
 	void process( void);
 	
 	class WrongInputException : public std::exception {
