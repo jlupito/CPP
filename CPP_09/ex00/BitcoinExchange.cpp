@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlupito <jlupito@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:37 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/17 19:48:05 by jlupito          ###   ########.fr       */
+/*   Updated: 2024/01/24 16:34:16 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,12 @@ void	BitcoinExchange::checkExchange(char *str) {
 	if (!ifs.is_open() or ifs.peek() == std::ifstream::traits_type::eof())
 		throw FileException();
 	std::string line;
+	int flag = 0; 
 	while(std::getline(ifs, line)) {
+		if (line == "date | value" && !flag) {
+			std::getline(ifs, line);
+			flag = 1;
+		}
 		size_t posPipe = line.find('|');
 		try {
 			_checkDate(line.substr(0, posPipe - 1));
