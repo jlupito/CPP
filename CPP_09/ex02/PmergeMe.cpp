@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:49 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/23 15:32:26 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:12:49 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,68 +51,65 @@ PmergeMe::PmergeMe( char** av ) {
 
 void PmergeMe::process( void ) {
 	unsigned long long time = _getTime();
-	_sortFJ(_vecToSort);
-	time = _getTime() - time;
-	time = _getTime();
-	std::cout << "After: ";
-	for (std::vector<int>::const_iterator it = _vecToSort.begin(); it != _vecToSort.end(); ++it)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-	std::cout << "Time to process a range of " << _vecToSort.size()
-		<< " elements with std::vector<int> : " << time << " us" << std::endl;
-	time = _getTime();
 	_sortFJ(_deqToSort);
+	time = _getTime() - time;
 	std::cout << "After: ";
 	for (std::deque<int>::const_iterator it = _deqToSort.begin(); it != _deqToSort.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
-	time = _getTime() - time;
-	time = _getTime();
 	std::cout << "Time to process a range of " << _deqToSort.size()
 		<< " elements with std::deque<int> : " << time << " us" << std::endl;
+	time = _getTime();
+	_sortFJ(_vecToSort);
+	time = _getTime() - time;
+	std::cout << "Time to process a range of " << _vecToSort.size()
+		<< " elements with std::vector<int> : " << time << " us" << std::endl;
+	// for (size_t i = 0; i < _deqToSort.size() - 1; i++) {
+	// 	if (_deqToSort[i] > _deqToSort[i + 1]) {
+	// 		std::cout << "Vector sort failed at i = " << i << std::endl;
+	// 		break ;
+	// 	}
+	// 	if (i == _deqToSort.size() - 2)
+	// 		std::cout << "Vector sort succeeded" << std::endl;
+	// }
+	// for (size_t i = 0; i < _vecToSort.size() - 1; i++) {
+	// 	if (_vecToSort[i] > _vecToSort[i + 1]) {
+	// 		std::cout << "Deque sort failed at i = " << i << std::endl;
+	// 		exit(0);
+	// 	}
+	// 	if (i == _vecToSort.size() - 2)
+	// 		std::cout << "Deque sort succeeded" << std::endl;
+	// }
 }
 
 template< typename T >
 void PmergeMe::_sortFJ( T& toSort ) {
 	T main;
 	T pend;
-	int unPaired;
-	bool odd;
-	if (toSort.size() % 2) {
-		unPaired = toSort.back();
-		odd = true;
-		toSort.pop_back();
-		// toSort.pop();
-	}
 	if (toSort.size() > 2) {
-		for (size_t i = 0; i < toSort.size() - 1; i += 2) {
+		for (size_t i = 0; i < toSort.size() - 2; i += 2) {
 			if (toSort[i] > toSort[i + 1])
 				std::swap(toSort[i], toSort[i + 1]);
 			main.push_back(toSort[i]);
 			pend.push_back(toSort[i + 1]);
 		}
 		_sortFJ(main);
-		size_t sizeMax = toSort.size();
-		if (odd == true)
-			sizeMax--;
+		size_t sizeMax = pend.size();
 		for (size_t index = 0; index < sizeMax; index++) {
-			size_t j = 0;
-			size_t uncleJack;
-			while (index > _jacobsthal(j))
-				j++;
-			if (j != 0)
+			size_t jack = 0;
+			size_t sortIndex;
+			for (; _jacobsthal(jack) < index; jack++) {}
+			if (jack != 0)
 			{
-				if (sizeMax - 1 <= _jacobsthal(j))
-					uncleJack = sizeMax - (index - _jacobsthal(j - 1));
+				if (sizeMax - 1 <= _jacobsthal(jack))
+					sortIndex = sizeMax - (index - _jacobsthal(jack - 1));
 				else
-					uncleJack = _jacobsthal(j) + 1 - (index - _jacobsthal(j - 1)); 
+					sortIndex = _jacobsthal(jack) + 1 - (index - _jacobsthal(jack - 1)); 
 			}
 			else
-				uncleJack = 0;
-			_binarySearchInsert(main, pend[uncleJack]);
+				sortIndex = 0;
+			_binarySearchInsert(main, pend[sortIndex]);
 		}
-		if (odd == true)
-			_binarySearchInsert(main, unPaired);
 		toSort = main;
 	}
 }
