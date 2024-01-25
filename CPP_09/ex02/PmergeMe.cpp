@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:49 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/24 16:12:49 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:59:52 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ PmergeMe::PmergeMe( char** av ) {
 
 void PmergeMe::process( void ) {
 	unsigned long long time = _getTime();
+	int sizeBefore = _vecToSort.size();
 	_sortFJ(_deqToSort);
 	time = _getTime() - time;
 	std::cout << "After: ";
@@ -64,30 +65,37 @@ void PmergeMe::process( void ) {
 	time = _getTime() - time;
 	std::cout << "Time to process a range of " << _vecToSort.size()
 		<< " elements with std::vector<int> : " << time << " us" << std::endl;
-	// for (size_t i = 0; i < _deqToSort.size() - 1; i++) {
-	// 	if (_deqToSort[i] > _deqToSort[i + 1]) {
-	// 		std::cout << "Vector sort failed at i = " << i << std::endl;
-	// 		break ;
-	// 	}
-	// 	if (i == _deqToSort.size() - 2)
-	// 		std::cout << "Vector sort succeeded" << std::endl;
-	// }
-	// for (size_t i = 0; i < _vecToSort.size() - 1; i++) {
-	// 	if (_vecToSort[i] > _vecToSort[i + 1]) {
-	// 		std::cout << "Deque sort failed at i = " << i << std::endl;
-	// 		exit(0);
-	// 	}
-	// 	if (i == _vecToSort.size() - 2)
-	// 		std::cout << "Deque sort succeeded" << std::endl;
-	// }
+	for (size_t i = 0; i < _deqToSort.size() - 1; i++) {
+		if (_deqToSort[i] > _deqToSort[i + 1]) {
+			std::cout << "Vector sort failed at i = " << i << std::endl;
+			break ;
+		}
+		if (i == _deqToSort.size() - 2)
+			std::cout << "Vector sort succeeded" << std::endl;
+	}
+	for (size_t i = 0; i < _vecToSort.size() - 1; i++) {
+		if (_vecToSort[i] > _vecToSort[i + 1]) {
+			std::cout << "Deque sort failed at i = " << i << std::endl;
+			break ;
+		}
+		if (i == _vecToSort.size() - 2)
+			std::cout << "Deque sort succeeded" << std::endl;
+	}
+	std::cout << "size before: " << sizeBefore << std::endl;
+	std::cout << "size after: " << _vecToSort.size() << std::endl;
 }
 
 template< typename T >
 void PmergeMe::_sortFJ( T& toSort ) {
 	T main;
 	T pend;
+	// int unPaired = -1;
+	// if (toSort.size() % 2) {
+	// 	unPaired = toSort.back();
+	// 	toSort.pop_back();
+	// }
 	if (toSort.size() > 2) {
-		for (size_t i = 0; i < toSort.size() - 2; i += 2) {
+		for (size_t i = 0; i < toSort.size() - 1; i += 2) {
 			if (toSort[i] > toSort[i + 1])
 				std::swap(toSort[i], toSort[i + 1]);
 			main.push_back(toSort[i]);
@@ -97,19 +105,18 @@ void PmergeMe::_sortFJ( T& toSort ) {
 		size_t sizeMax = pend.size();
 		for (size_t index = 0; index < sizeMax; index++) {
 			size_t jack = 0;
-			size_t sortIndex;
+			size_t sortIndex = 0;
 			for (; _jacobsthal(jack) < index; jack++) {}
-			if (jack != 0)
-			{
-				if (sizeMax - 1 <= _jacobsthal(jack))
+			if (jack) {
+				if (_jacobsthal(jack) >= sizeMax - 1)
 					sortIndex = sizeMax - (index - _jacobsthal(jack - 1));
 				else
 					sortIndex = _jacobsthal(jack) + 1 - (index - _jacobsthal(jack - 1)); 
 			}
-			else
-				sortIndex = 0;
 			_binarySearchInsert(main, pend[sortIndex]);
 		}
+		// if (unPaired >= 0)
+		// 	_binarySearchInsert(main, unPaired);
 		toSort = main;
 	}
 }

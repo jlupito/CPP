@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:37 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/24 16:34:16 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:49:08 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ BitcoinExchange &BitcoinExchange::operator=( const BitcoinExchange &rhs) {
 
 void	BitcoinExchange::checkExchange(char *str) {
 	std::ifstream ifs(str);
-	if (!ifs.is_open() or ifs.peek() == std::ifstream::traits_type::eof())
+	std::string input = str;
+	if (!ifs.is_open() or ifs.peek() == std::ifstream::traits_type::eof() 
+			or	input.substr(input.length() - 4) != ".txt")
 		throw FileException();
 	std::string line;
 	int flag = 0; 
