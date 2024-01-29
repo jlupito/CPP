@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:49 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/29 17:59:17 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:10:22 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,15 +144,12 @@ void PmergeMe::_binarySearchInsert(T& container, int value) {
     int high = container.size() - 1;
     while (low <= high) {
         int mid = low + (high - low) / 2;
-        if (container[mid] == value) {
-            return;
-        } 
-		else if (container[mid] < value) {
+        if (container[mid] == value)
+            return; 
+		else if (container[mid] < value)
             low = mid + 1;
-        } 
-		else {
+		else
             high = mid - 1;
-        }
     }
     container.insert(container.begin() + low, value);// Insére la valeur à l'index "low"
 }
