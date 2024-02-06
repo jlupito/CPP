@@ -6,15 +6,16 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:15:27 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/15 11:15:34 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:10:10 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "span.hpp"
+#include <climits>
 
 int main(void) {
 
-	Span myRange(10005);
+	Span myRange(-5);
 	std::srand(time(0)); 
 	
 	try {

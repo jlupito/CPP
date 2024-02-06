@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:59 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/23 15:21:34 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:26:07 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ private:
 public:
 	~PmergeMe( void );
 	PmergeMe( char** av );
-	void process( void);
+	void process( void );
 	
 	class WrongInputException : public std::exception {
 	public:

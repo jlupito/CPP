@@ -6,7 +6,7 @@
 /*   By: jarthaud <jarthaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:37 by jarthaud          #+#    #+#             */
-/*   Updated: 2024/01/25 11:49:08 by jarthaud         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:07:02 by jarthaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ BitcoinExchange &BitcoinExchange::operator=( const BitcoinExchange &rhs) {
 void	BitcoinExchange::checkExchange(char *str) {
 	std::ifstream ifs(str);
 	std::string input = str;
-	if (!ifs.is_open() or ifs.peek() == std::ifstream::traits_type::eof() 
-			or	input.substr(input.length() - 4) != ".txt")
+	if (!ifs.is_open() or ifs.peek() == std::ifstream::traits_type::eof())
 		throw FileException();
 	std::string line;
 	int flag = 0; 
@@ -104,8 +103,13 @@ void	BitcoinExchange::_checkRate(const std::string& rate) {
 }
 
 std::map<std::string, float>::iterator BitcoinExchange::_findDate(const std::string& date) {
-	std::map<std::string, float>::iterator it = _btc.lower_bound(date);
-	return (--it);
+    std::map<std::string, float>::iterator it = _btc.find(date);
+    if (it != _btc.end())
+        return it;
+    it = _btc.lower_bound(date);
+    if (it != _btc.end())
+        return it;
+    return (--it);
 }
 
 void	BitcoinExchange::_printOutput(const std::string& key, const std::string& value) {
@@ -136,8 +140,6 @@ bool BitcoinExchange::_isInt(const std::string& str) {
 
 bool BitcoinExchange::_isFloat(const std::string& str) {
 	unsigned long i = 0;
-	if (str == "-inff" or str == "+inff" or str == "nanf")
-		return true;
 	if (str[i] == '+' or str[i] == '-')
 		i++;
 	while (isdigit(str[i]))
@@ -149,7 +151,7 @@ bool BitcoinExchange::_isFloat(const std::string& str) {
 		while (isdigit(str[i]))
 			i++;
 	}
-	if (str[i] == 'f' and i == str.length() - 1)
+	if ((str[i] == 'f' and i == str.length() - 1) or i == str.length() - 1)
 		return true;
 	return false;
 }
